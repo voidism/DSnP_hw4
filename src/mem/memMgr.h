@@ -142,11 +142,14 @@ class MemRecycleList
    // DO NOT release the memory occupied by MemMgr/MemBlock
    void reset() {
       // TODO.Done
-      while(_first!=0){
-        T *target = _first;
-        _first = getNext(_first);
-        delete target;
-      }
+      //while(_first!=0){
+      //  T *target = _first;
+      //  _first = getNext(_first);
+      //  delete target;
+      //}
+      if(_nextList) delete _nextList;
+      _nextList = 0;
+      _first = 0;
    }
 
    // Helper functions
@@ -154,6 +157,7 @@ class MemRecycleList
    // Iterate to the next element after 'p' in the recycle list
    T* getNext(T* p) const {
       // TODO.Done
+      if (p==0) return 0;
       return (T*)*((size_t*)p);
    }
    //
@@ -315,7 +319,7 @@ private:
         return 0;
       }
       else{
-        return t / _S;
+        return t - SIZE_T / S;
       }
       return 0;
    }
@@ -332,8 +336,8 @@ private:
       // TODO.Done
       if(n<R_SIZE)
         return &_recycleList[n];
-      MemRecycleList<T> *doing = _recycleList[n]._nextList;
-      MemRecycleList<T> &body = _recycleList[n];
+      MemRecycleList<T> *doing = _recycleList[m]._nextList;
+      MemRecycleList<T> &body = *(_recycleList[m]._nextList);
       while (doing != 0)
       {
         if(doing->_arrSize == n){
@@ -355,7 +359,7 @@ private:
       #ifdef MEM_DEBUG
       cout << "Calling MemMgr::getMem...(" << t << ")" << endl;
       #endif // MEM_DEBUG
-      // TODO ---
+      // TODO.Done ---
       // 1. Make sure to promote t to a multiple of SIZE_T
       t = toSizeT(t);
       size_t n = getArraySize(t);
@@ -423,7 +427,7 @@ private:
    }
    // Get the currently allocated number of MemBlock's
    size_t getNumBlocks() const {
-      // TODO
+      // TODO.Done
       MemBlock<T> *countptr = _activeBlock;
       size_t count = 1;
       while (countptr->_nextBlock != 0)

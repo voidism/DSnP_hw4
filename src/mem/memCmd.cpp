@@ -170,7 +170,8 @@ MTDeleteCmd::exec(const string& option)
    {
            if (myStrNCmp("-Array", options[i], 2) == 0)
            {
-                   doArr = true;
+                if (doArr!=false) return CmdExec::errorOption(CMD_OPT_ILLEGAL, options[i]);
+                doArr = true;
            }
            else if (myStrNCmp("-Index", options[i], 2) == 0)
            {
@@ -191,19 +192,26 @@ MTDeleteCmd::exec(const string& option)
            }
            else if (myStrNCmp("-Random", options[i], 2) == 0)
            {
-                   if (objId!=-1 || numRandId!=-1)
+                   if (objId!=-1 || numRandId!=-1){
+                           cout << "redifine!" ; 
                            return CmdExec::errorOption(CMD_OPT_ILLEGAL, options[i]);
+                   }
                    if ((i + 1) >= options.size())
                    {
                            return CmdExec::errorOption(CMD_OPT_MISSING, options[i]);
                    }
                    else
                    {
-                           if (!myStr2Int(options[++i], numRandId))
+                           i++;
+                           if (!myStr2Int(options[i], numRandId)){
+                                   cout << "mystr2int fail!"; 
                                    return CmdExec::errorOption(CMD_OPT_ILLEGAL, options[i]);
+                           }
                            numRandIdstr = options[i];
-                           if (numRandId <= 0)
+                           if (numRandId <= 0){
+                                   cout << "numRandId <= 0"; 
                                    return CmdExec::errorOption(CMD_OPT_ILLEGAL, options[i]);
+                           }
                    }
            }
            else
@@ -212,28 +220,35 @@ MTDeleteCmd::exec(const string& option)
            }
      }
              if(doArr){
-                     if((size_t)objId>=mtest.getArrListSize()){
-                             return CmdExec::errorOption(CMD_OPT_ILLEGAL, objIdstr);
-                     }
+                     
                      //_arrList[objId] = 0;
-                     if(objId!=-1)
-                     mtest.deleteArr(objId);
+                     if(objId!=-1){
+                        mtest.deleteArr(objId);
+                        if((size_t)objId>=mtest.getArrListSize()){
+                                return CmdExec::errorOption(CMD_OPT_ILLEGAL, objIdstr);
+                        }
+                     }
                      else if (numRandId!=-1){
                              for (int i = 0; i < numRandId;i++){
-                                     mtest.deleteArr(rnGen(mtest.getArrListSize()-1));
+                                     mtest.deleteArr(rnGen(mtest.getArrListSize()));
                              }
                      }
              }
              else{
-                        if((size_t)objId>=mtest.getObjListSize()){
-                                return CmdExec::errorOption(CMD_OPT_ILLEGAL, objIdstr);
-                        }
+                        
                         //_objList[objId] = 0;
-                        if(objId!=-1)
-                        mtest.deleteObj(objId);
+                        if(objId!=-1){
+                                mtest.deleteObj(objId);
+                                if((size_t)objId>=mtest.getObjListSize()){
+                                        #ifdef MEM_DEBUG
+                                        cout << "objId : " << objId << " > mtest.getObjListSize() : " << mtest.getObjListSize() << endl;
+                                        #endif // MEM_DEBUG
+                                        return CmdExec::errorOption(CMD_OPT_ILLEGAL, objIdstr);
+                                }
+                        }
                         else if (numRandId!=-1){
                                 for (int i = 0; i < numRandId;i++){
-                                        mtest.deleteObj(rnGen(mtest.getObjListSize()-1));
+                                        mtest.deleteObj(rnGen(mtest.getObjListSize()));
                                 }
                         }
              }
