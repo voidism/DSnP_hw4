@@ -78,7 +78,57 @@ MTResetCmd::help() const
 CmdExecStatus
 MTNewCmd::exec(const string& option)
 {
-   // TODO
+   // TODO.Done
+      // check option
+      vector<string> options;
+      if (!CmdExec::lexOptions(option, options))
+         return CMD_EXEC_ERROR;
+
+      if (options.empty())
+         return CmdExec::errorOption(CMD_OPT_MISSING, "");
+   
+      //bool doArr = false;
+      int numObjects = 0;
+      int arraySize = 0;
+      if (options.size() == 1)
+      {
+        if(!myStr2Int(options[0], numObjects)) 
+                return CmdExec::errorOption(CMD_OPT_ILLEGAL, options[0]);
+        if(numObjects<=0)
+                return CmdExec::errorOption(CMD_OPT_ILLEGAL, options[0]);
+        // allocate mem
+        mtest.newObjs(numObjects);
+      }
+      else{
+        for (unsigned int i = 0; i < options.size(); i++){
+                if(myStrNCmp("-Array", options[i], 2) == 0){
+                        if ((i+1)>=options.size()){
+                                return CmdExec::errorOption(CMD_OPT_MISSING, options[i]);
+                        }
+                        else{
+                                if(!myStr2Int(options[++i], arraySize)) 
+                                        return CmdExec::errorOption(CMD_OPT_ILLEGAL, options[i]);
+                                
+                                if(arraySize<0)
+                                        return CmdExec::errorOption(CMD_OPT_ILLEGAL, options[i]);
+                                
+                        }
+                }
+                else if(numObjects==0){
+                        if(!myStr2Int(options[i], numObjects)) 
+                                return CmdExec::errorOption(CMD_OPT_ILLEGAL, options[i]);
+                        if(numObjects<=0)
+                                return CmdExec::errorOption(CMD_OPT_ILLEGAL, options[i]);
+                }
+                else{
+                        return CmdExec::errorOption(CMD_OPT_EXTRA, options[i]);
+                }
+        }
+        if(numObjects==0)
+                return CmdExec::errorOption(CMD_OPT_MISSING, "");
+        //allocate mem
+        mtest.newArrs(numObjects, arraySize);
+      }
 
    return CMD_EXEC_DONE;
 }
@@ -103,8 +153,92 @@ MTNewCmd::help() const
 CmdExecStatus
 MTDeleteCmd::exec(const string& option)
 {
-   // TODO
+   // TODO.Done
+   vector<string> options;
+   if (!CmdExec::lexOptions(option, options))
+      return CMD_EXEC_ERROR;
 
+   if (options.empty())
+      return CmdExec::errorOption(CMD_OPT_MISSING, "");
+
+   bool doArr = false;
+   int objId = -1;
+   string objIdstr;
+   int numRandId = -1;
+   string numRandIdstr;
+   for (size_t i = 0; i < options.size(); i++)
+   {
+           if (myStrNCmp("-Array", options[i], 2) == 0)
+           {
+                   doArr = true;
+           }
+           else if (myStrNCmp("-Index", options[i], 2) == 0)
+           {
+                   if (objId!=-1 || numRandId!=-1)
+                           return CmdExec::errorOption(CMD_OPT_ILLEGAL, options[i]);
+                   if ((i + 1) >= options.size())
+                   {
+                           return CmdExec::errorOption(CMD_OPT_MISSING, options[i]);
+                   }
+                   else
+                   {
+                           if (!myStr2Int(options[++i], objId))
+                                   return CmdExec::errorOption(CMD_OPT_ILLEGAL, options[i]);
+                           objIdstr = options[i];
+                           if (objId < 0)
+                                   return CmdExec::errorOption(CMD_OPT_ILLEGAL, options[i]);
+                   }
+           }
+           else if (myStrNCmp("-Random", options[i], 2) == 0)
+           {
+                   if (objId!=-1 || numRandId!=-1)
+                           return CmdExec::errorOption(CMD_OPT_ILLEGAL, options[i]);
+                   if ((i + 1) >= options.size())
+                   {
+                           return CmdExec::errorOption(CMD_OPT_MISSING, options[i]);
+                   }
+                   else
+                   {
+                           if (!myStr2Int(options[++i], numRandId))
+                                   return CmdExec::errorOption(CMD_OPT_ILLEGAL, options[i]);
+                           numRandIdstr = options[i];
+                           if (numRandId <= 0)
+                                   return CmdExec::errorOption(CMD_OPT_ILLEGAL, options[i]);
+                   }
+           }
+           else
+           {
+                   return CmdExec::errorOption(CMD_OPT_EXTRA, options[i]);
+           }
+     }
+             if(doArr){
+                     if((size_t)objId>=mtest.getArrListSize()){
+                             return CmdExec::errorOption(CMD_OPT_ILLEGAL, objIdstr);
+                     }
+                     //_arrList[objId] = 0;
+                     if(objId!=-1)
+                     mtest.deleteArr(objId);
+                     else if (numRandId!=-1){
+                             for (int i = 0; i < numRandId;i++){
+                                     mtest.deleteArr(rnGen(mtest.getArrListSize()-1));
+                             }
+                     }
+             }
+             else{
+                        if((size_t)objId>=mtest.getObjListSize()){
+                                return CmdExec::errorOption(CMD_OPT_ILLEGAL, objIdstr);
+                        }
+                        //_objList[objId] = 0;
+                        if(objId!=-1)
+                        mtest.deleteObj(objId);
+                        else if (numRandId!=-1){
+                                for (int i = 0; i < numRandId;i++){
+                                        mtest.deleteObj(rnGen(mtest.getObjListSize()-1));
+                                }
+                        }
+             }
+     
+   
    return CMD_EXEC_DONE;
 }
 
