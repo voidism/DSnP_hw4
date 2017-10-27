@@ -97,7 +97,14 @@ MTNewCmd::exec(const string& option)
         if(numObjects<=0)
                 return CmdExec::errorOption(CMD_OPT_ILLEGAL, options[0]);
         // allocate mem
+        try{
         mtest.newObjs(numObjects);
+        }
+        catch(...){
+                #ifdef MEM_DEBUG
+                cerr << "catch you!!!\n";
+                #endif
+        }
       }
       else{
         for (unsigned int i = 0; i < options.size(); i++){
@@ -127,7 +134,14 @@ MTNewCmd::exec(const string& option)
         if(numObjects==0)
                 return CmdExec::errorOption(CMD_OPT_MISSING, "");
         //allocate mem
-        mtest.newArrs(numObjects, arraySize);
+        try{
+        mtest.newArrs((size_t)numObjects, (size_t)arraySize);
+        }
+        catch(...){
+                #ifdef MEM_DEBUG
+                cerr << "catch you!!!\n";
+                #endif
+        }
       }
 
    return CMD_EXEC_DONE;
@@ -193,7 +207,9 @@ MTDeleteCmd::exec(const string& option)
            else if (myStrNCmp("-Random", options[i], 2) == 0)
            {
                    if (objId!=-1 || numRandId!=-1){
+                           #ifdef MEM_DEBUG
                            cout << "redifine!" ; 
+                           #endif
                            return CmdExec::errorOption(CMD_OPT_ILLEGAL, options[i]);
                    }
                    if ((i + 1) >= options.size())
@@ -204,12 +220,16 @@ MTDeleteCmd::exec(const string& option)
                    {
                            i++;
                            if (!myStr2Int(options[i], numRandId)){
+                                   #ifdef MEM_DEBUG
                                    cout << "mystr2int fail!"; 
+                                   #endif
                                    return CmdExec::errorOption(CMD_OPT_ILLEGAL, options[i]);
                            }
                            numRandIdstr = options[i];
                            if (numRandId <= 0){
+                                   #ifdef MEM_DEBUG
                                    cout << "numRandId <= 0"; 
+                                   #endif
                                    return CmdExec::errorOption(CMD_OPT_ILLEGAL, options[i]);
                            }
                    }
@@ -223,10 +243,10 @@ MTDeleteCmd::exec(const string& option)
                      
                      //_arrList[objId] = 0;
                      if(objId!=-1){
-                        mtest.deleteArr(objId);
                         if((size_t)objId>=mtest.getArrListSize()){
                                 return CmdExec::errorOption(CMD_OPT_ILLEGAL, objIdstr);
                         }
+                        mtest.deleteArr(objId);
                      }
                      else if (numRandId!=-1){
                              for (int i = 0; i < numRandId;i++){
@@ -238,13 +258,13 @@ MTDeleteCmd::exec(const string& option)
                         
                         //_objList[objId] = 0;
                         if(objId!=-1){
-                                mtest.deleteObj(objId);
                                 if((size_t)objId>=mtest.getObjListSize()){
                                         #ifdef MEM_DEBUG
                                         cout << "objId : " << objId << " > mtest.getObjListSize() : " << mtest.getObjListSize() << endl;
                                         #endif // MEM_DEBUG
                                         return CmdExec::errorOption(CMD_OPT_ILLEGAL, objIdstr);
                                 }
+                                mtest.deleteObj(objId);
                         }
                         else if (numRandId!=-1){
                                 for (int i = 0; i < numRandId;i++){

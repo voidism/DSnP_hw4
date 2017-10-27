@@ -59,19 +59,19 @@ public:
    void newObjs(size_t n) {
       // TODO
       //MemTestObj tmp;
-      MemTestObj *ptr = new MemTestObj;//&tmp;
+      //MemTestObj *ptr = new MemTestObj;//&tmp;
       for (size_t i = 0; i < n; i++)
       {
-        _objList.push_back(ptr);
+        _objList.push_back(new MemTestObj);
       }
    }
    // Allocate "n" number of MemTestObj arrays with size "s"
    void newArrs(size_t n, size_t s) {
       // TODO
-      MemTestObj* tmp = new MemTestObj[s];
+      //MemTestObj* tmp = new MemTestObj[s];
       for (size_t i = 0; i < n; i++)
       {
-        _arrList.push_back(tmp);
+        _arrList.push_back(new MemTestObj[s]);
       }
    }
    // Delete the object with position idx in _objList[]

@@ -1,0 +1,88 @@
+mtest> mtreset 190
+
+mtest> mtnew 3
+
+mtest> mtp
+=========================================
+=              Memory Manager           =
+=========================================
+* Block size            : 192 Bytes
+* Number of blocks      : 1
+* Free mem in last block: 72
+* Recycle list          : 
+
+=========================================
+=             class MemTest             =
+=========================================
+Object list ---
+ooo
+Array list ---
+
+
+mtest> mtdel -r 3
+
+mtest> mtp
+=========================================
+=              Memory Manager           =
+=========================================
+* Block size            : 192 Bytes
+* Number of blocks      : 1
+* Free mem in last block: 72
+* Recycle list          : 
+[  0] = 2         
+=========================================
+=             class MemTest             =
+=========================================
+Object list ---
+oxx
+Array list ---
+
+
+mtest> mtnew 5 -a 3
+
+mtest> mtp
+=========================================
+=              Memory Manager           =
+=========================================
+* Block size            : 192 Bytes
+* Number of blocks      : 4
+* Free mem in last block: 192
+* Recycle list          : 
+[  0] = 2         [  1] = 3         
+=========================================
+=             class MemTest             =
+=========================================
+Object list ---
+oxx
+Array list ---
+ooooo
+
+mtest> mtdel -r 2 -a
+
+mtest> mtp
+=========================================
+=              Memory Manager           =
+=========================================
+* Block size            : 192 Bytes
+* Number of blocks      : 4
+* Free mem in last block: 192
+* Recycle list          : 
+[  0] = 2         [  1] = 3         [  3] = 2         
+=========================================
+=             class MemTest             =
+=========================================
+Object list ---
+oxx
+Array list ---
+oooxx
+
+mtest> mtnew -a 2 3
+
+mtest> mtp
+=========================================
+=              Memory Manager           =
+=========================================
+* Block size            : 192 Bytes
+* Number of blocks      : 5
+* Free mem in last block: 192
+* Recycle list          : 

@@ -147,7 +147,10 @@ class MemRecycleList
       //  _first = getNext(_first);
       //  delete target;
       //}
-      if(_nextList) delete _nextList;
+      if(_nextList){
+          delete _nextList;
+          _nextList->reset();
+	}
       _nextList = 0;
       _first = 0;
    }
@@ -158,7 +161,7 @@ class MemRecycleList
    T* getNext(T* p) const {
       // TODO.Done
       if (p==0) return 0;
-      return (T*)*((size_t*)p);
+      return (T*)(*(size_t*)p);
    }
    //
    // count the number of elements in the recycle list
@@ -319,7 +322,7 @@ private:
         return 0;
       }
       else{
-        return t - SIZE_T / S;
+        return (t - SIZE_T) / S;
       }
       return 0;
    }
@@ -334,24 +337,34 @@ private:
    MemRecycleList<T>* getMemRecycleList(size_t n) {
       size_t m = n % R_SIZE;
       // TODO.Done
-      if(n<R_SIZE)
-        return &_recycleList[n];
+      if(n<R_SIZE){
+        MemRecycleList<T> *current = &_recycleList[n];
+        return current;
+      }
+      if(_recycleList[m]._nextList==0){
+        _recycleList[m]._nextList = new MemRecycleList<T>(n);
+        return _recycleList[m]._nextList;
+      }
       MemRecycleList<T> *doing = _recycleList[m]._nextList;
-      MemRecycleList<T> &body = *(_recycleList[m]._nextList);
+
+      //MemRecycleList<T> &body = *(_recycleList[m]._nextList);
       while (doing != 0)
       {
         if(doing->_arrSize == n){
           return doing;
         }
+        else if(doing->_nextList == 0){
+          doing->_nextList = new MemRecycleList<T>(n);
+          return doing->_nextList;
+        }
         else{
-          body = *((*doing)._nextList);
-          doing = (*doing)._nextList;
+          //body = *((*doing)._nextList);
+          doing = doing->_nextList;
         }
       }
-      body._nextList = new MemRecycleList<T>(n);
 
-      return body._nextList;
-   }
+      return doing->_nextList;
+    }
    // t is the #Bytes requested from new or new[]
    // Note: Make sure the returned memory is a multiple of SIZE_T
    T* getMem(size_t t) {
@@ -370,6 +383,7 @@ private:
       if (t>_blockSize){
         cerr << "Requested memory (" << t << ") is greater than block size"
              << "(" << _blockSize << "). " << "Exception raised...\n";
+        throw bad_alloc();
       }
       // 3. Check the _recycleList first...
       //    #ifdef MEM_DEBUG
@@ -399,13 +413,14 @@ private:
       //    cout << "New MemBlock... " << _activeBlock << endl;
       //    #endif // MEM_DEBUG
       else if(!_activeBlock->MemBlock<T>::getMem(t,ret)){
+        if(_activeBlock->getRemainSize()>=S){
           size_t rn = getArraySize(_activeBlock->getRemainSize());
           getMemRecycleList(rn)->pushFront((T*)(_activeBlock->_ptr));
           #ifdef MEM_DEBUG
             cout << "Recycling " << ret << " to _recycleList[" << rn << "]\n";
           #endif // MEM_DEBUG
-          MemBlock<T>* newblock =new MemBlock<T>(_activeBlock->_nextBlock,_blockSize);
-          _activeBlock = newblock;
+        }
+          _activeBlock = new MemBlock<T>(_activeBlock,_blockSize);
           #ifdef MEM_DEBUG
             cout << "New MemBlock... " << _activeBlock << endl;
           #endif // MEM_DEBUG
