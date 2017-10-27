@@ -261,8 +261,8 @@ public:
       // TODO.Done
       // Get the array size 'n' stored by system,
       // which is also the _recycleList index
-      size_t n = *(size_t*)p;
-      //n = getArraySize(sizeof(*p)/sizeof(*p[0]));
+      size_t n = *((size_t*)p);
+      //n = getArraySize(sizeof(*p)/sizeof(T));
       #ifdef MEM_DEBUG
       cout << ">> Array size = " << n << endl;
       cout << "Recycling " << p << " to _recycleList[" << n << "]" << endl;
@@ -343,6 +343,7 @@ private:
       }
       if(_recycleList[m]._nextList==0){
         _recycleList[m]._nextList = new MemRecycleList<T>(n);
+        //_recycleList[m]._nextList->_arrSize = n;
         return _recycleList[m]._nextList;
       }
       MemRecycleList<T> *doing = _recycleList[m]._nextList;
@@ -355,6 +356,7 @@ private:
         }
         else if(doing->_nextList == 0){
           doing->_nextList = new MemRecycleList<T>(n);
+          //doing->_nextList->_arrSize = n;
           return doing->_nextList;
         }
         else{

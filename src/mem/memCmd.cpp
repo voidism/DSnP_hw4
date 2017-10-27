@@ -176,6 +176,7 @@ MTDeleteCmd::exec(const string& option)
       return CmdExec::errorOption(CMD_OPT_MISSING, "");
 
    bool doArr = false;
+   string raname;
    int objId = -1;
    string objIdstr;
    int numRandId = -1;
@@ -206,7 +207,9 @@ MTDeleteCmd::exec(const string& option)
            }
            else if (myStrNCmp("-Random", options[i], 2) == 0)
            {
-                   if (objId!=-1 || numRandId!=-1){
+                   raname = options[i];
+                   if (objId != -1 || numRandId != -1)
+                   {
                            #ifdef MEM_DEBUG
                            cout << "redifine!" ; 
                            #endif
@@ -236,7 +239,7 @@ MTDeleteCmd::exec(const string& option)
            }
            else
            {
-                   return CmdExec::errorOption(CMD_OPT_EXTRA, options[i]);
+                   return CmdExec::errorOption(CMD_OPT_ILLEGAL, options[i]);
            }
      }
              if(doArr){
@@ -244,31 +247,41 @@ MTDeleteCmd::exec(const string& option)
                      //_arrList[objId] = 0;
                      if(objId!=-1){
                         if((size_t)objId>=mtest.getArrListSize()){
+                                cerr << "Size of array list ("<< mtest.getArrListSize() <<") is <= " << objIdstr <<"!!"<< endl;
                                 return CmdExec::errorOption(CMD_OPT_ILLEGAL, objIdstr);
                         }
                         else mtest.deleteArr((size_t)objId);
                      }
                      else if (numRandId!=-1){
+                                if (mtest.getArrListSize()==0){
+                                cerr << "Size of array list is 0!!"<< endl;
+                                return CmdExec::errorOption(CMD_OPT_ILLEGAL, raname);
+                        }
                              for (int i = 0; i < numRandId;i++){
-                                     mtest.deleteArr(rnGen(mtest.getArrListSize()));
+                                     mtest.deleteArr((size_t)rnGen((int)mtest.getArrListSize()));
                              }
                      }
              }
              else{
                         
                         //_objList[objId] = 0;
+
                         if(objId!=-1){
                                 if((size_t)objId>=mtest.getObjListSize()){
-                                        #ifdef MEM_DEBUG
-                                        cout << "objId : " << objId << " > mtest.getObjListSize() : " << mtest.getObjListSize() << endl;
-                                        #endif // MEM_DEBUG
+                                        //#ifdef MEM_DEBUG
+                                        cerr << "Size of object list ("<< mtest.getObjListSize() <<") is <= " << objIdstr <<"!!"<< endl;
+                                        //#endif // MEM_DEBUG
                                         return CmdExec::errorOption(CMD_OPT_ILLEGAL, objIdstr);
                                 }
                                 else mtest.deleteObj((size_t)objId);
                         }
                         else if (numRandId!=-1){
+                                if (mtest.getObjListSize()==0){
+                                   cerr << "Size of object list is 0!!"<< endl;
+                                   return CmdExec::errorOption(CMD_OPT_ILLEGAL, raname);
+                              }
                                 for (int i = 0; i < numRandId;i++){
-                                        mtest.deleteObj(rnGen(mtest.getObjListSize()));
+                                        mtest.deleteObj((size_t)rnGen((int)mtest.getObjListSize()));
                                 }
                         }
              }

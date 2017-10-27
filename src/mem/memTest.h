@@ -85,8 +85,11 @@ public:
    void deleteArr(size_t idx) {
       assert(idx < _arrList.size());
       // TODO
-      if(_arrList[idx] != 0 ) delete [] _arrList[idx];
-      _arrList[idx] = 0;
+      if (_arrList[idx] != 0)
+      {
+        delete[] _arrList[idx];
+        _arrList[idx] = 0;
+      }
    }
 
    void print() const {
