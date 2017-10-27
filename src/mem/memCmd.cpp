@@ -246,7 +246,7 @@ MTDeleteCmd::exec(const string& option)
                         if((size_t)objId>=mtest.getArrListSize()){
                                 return CmdExec::errorOption(CMD_OPT_ILLEGAL, objIdstr);
                         }
-                        mtest.deleteArr(objId);
+                        else mtest.deleteArr((size_t)objId);
                      }
                      else if (numRandId!=-1){
                              for (int i = 0; i < numRandId;i++){
@@ -264,7 +264,7 @@ MTDeleteCmd::exec(const string& option)
                                         #endif // MEM_DEBUG
                                         return CmdExec::errorOption(CMD_OPT_ILLEGAL, objIdstr);
                                 }
-                                mtest.deleteObj(objId);
+                                else mtest.deleteObj((size_t)objId);
                         }
                         else if (numRandId!=-1){
                                 for (int i = 0; i < numRandId;i++){
