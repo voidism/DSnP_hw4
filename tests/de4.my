@@ -1,0 +1,2821 @@
+mtest> mtr 0
+
+mtest> mtr 39
+
+mtest> mtr 40
+Resetting memMgr...(40)
+
+mtest> mtn 1
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x16350e0
+
+mtest> mtn 1 -a 1
+Calling allocArr...(44)
+Calling MemMgr::getMem...(44)
+
+mtest> mtn 1 -a 0
+
+mtest> mtp
+=========================================
+=              Memory Manager           =
+=========================================
+* Block size            : 40 Bytes
+* Number of blocks      : 1
+* Free mem in last block: 0
+* Recycle list          : 
+
+=========================================
+=             class MemTest             =
+=========================================
+Object list ---
+o
+Array list ---
+
+
+mtest> MTD
+
+mtest> mtd -a
+
+mtest> mtd -r 4
+Calling free...(0x16350e0)
+
+mtest> help mtn
+Usage: MTNew <(size_t numObjects)> [-Array (size_t arraySize)]
+
+mtest> mtn 5
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Recycled from _recycleList[0]...0x16350e0
+Memory acquired... 0x16350e0
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+New MemBlock... 0x161d7d0
+Memory acquired... 0x161d800
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+New MemBlock... 0x161d830
+Memory acquired... 0x161d860
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+New MemBlock... 0x161d890
+Memory acquired... 0x161db70
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+New MemBlock... 0x161dba0
+Memory acquired... 0x161dbd0
+
+mtest> mtr 500
+Resetting memMgr...(504)
+
+mtest> mtn 5
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161dc00
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161dc28
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161dc50
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161dc78
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161dca0
+
+mtest> mtd -a -Ran 3
+
+mtest> mtd -r -3
+numRandId <= 0
+mtest> mtd -r 3
+Calling free...(0x161dca0)
+Calling free...(0x161dc00)
+Calling free...(0x161dc28)
+
+mtest> mtp
+=========================================
+=              Memory Manager           =
+=========================================
+* Block size            : 504 Bytes
+* Number of blocks      : 1
+* Free mem in last block: 304
+* Recycle list          : 
+[  0] = 3         
+=========================================
+=             class MemTest             =
+=========================================
+Object list ---
+xxoox
+Array list ---
+
+
+mtest> mtn 123
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Recycled from _recycleList[0]...0x161dc28
+Memory acquired... 0x161dc28
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Recycled from _recycleList[0]...0x161dc00
+Memory acquired... 0x161dc00
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Recycled from _recycleList[0]...0x161dca0
+Memory acquired... 0x161dca0
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161dcc8
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161dcf0
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161dd18
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161dd40
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161dd68
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161dd90
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161ddb8
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+New MemBlock... 0x161d850
+Memory acquired... 0x161d880
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161d8a8
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161d8d0
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161d8f8
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161d920
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161d948
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161d970
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161d998
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161d9c0
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161d9e8
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161da10
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161da38
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+New MemBlock... 0x161da80
+Memory acquired... 0x161e210
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161e238
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161e260
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161e288
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161e2b0
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161e2d8
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161e300
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161e328
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161e350
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161e378
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161e3a0
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161e3c8
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+New MemBlock... 0x161e410
+Memory acquired... 0x161e440
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161e468
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161e490
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161e4b8
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161e4e0
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161e508
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161e530
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161e558
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161e580
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161e5a8
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161e5d0
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161e5f8
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+New MemBlock... 0x161e640
+Memory acquired... 0x161e670
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161e698
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161e6c0
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161e6e8
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161e710
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161e738
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161e760
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161e788
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161e7b0
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161e7d8
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161e800
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161e828
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+New MemBlock... 0x161e870
+Memory acquired... 0x161e8a0
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161e8c8
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161e8f0
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161e918
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161e940
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161e968
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161e990
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161e9b8
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161e9e0
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161ea08
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161ea30
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161ea58
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+New MemBlock... 0x161eaa0
+Memory acquired... 0x161ead0
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161eaf8
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161eb20
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161eb48
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161eb70
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161eb98
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161ebc0
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161ebe8
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161ec10
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161ec38
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161ec60
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161ec88
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+New MemBlock... 0x161ecd0
+Memory acquired... 0x161ed00
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161ed28
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161ed50
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161ed78
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161eda0
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161edc8
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161edf0
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161ee18
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161ee40
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161ee68
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161ee90
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161eeb8
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+New MemBlock... 0x161ef00
+Memory acquired... 0x161ef30
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161ef58
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161ef80
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161efa8
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161efd0
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161eff8
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161f020
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161f048
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161f070
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161f098
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161f0c0
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161f0e8
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+New MemBlock... 0x161f130
+Memory acquired... 0x161f160
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161f188
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161f1b0
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161f1d8
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161f200
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161f228
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161f250
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161f278
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161f2a0
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161f2c8
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161f2f0
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161f318
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+New MemBlock... 0x161f360
+Memory acquired... 0x161f390
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161f3b8
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161f3e0
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161f408
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x161f430
+
+mtest> mtp
+=========================================
+=              Memory Manager           =
+=========================================
+* Block size            : 504 Bytes
+* Number of blocks      : 11
+* Free mem in last block: 304
+* Recycle list          : 
+
+=========================================
+=             class MemTest             =
+=========================================
+Object list ---
+xxooxooooooooooooooooooooooooooooooooooooooooooooo
+oooooooooooooooooooooooooooooooooooooooooooooooooo
+oooooooooooooooooooooooooooo
+Array list ---
+
+
+mtest> mtd -r -r 23
+mystr2int fail!
+mtest> mtd -r 23 -r
+redifine!
+mtest> mtd -r 23
+Calling free...(0x161eeb8)
+Calling free...(0x161e350)
+Calling free...(0x161e9b8)
+Calling free...(0x161e800)
+Calling free...(0x161eb98)
+Calling free...(0x161e558)
+Calling free...(0x161e8f0)
+Calling free...(0x161f2f0)
+Calling free...(0x161f250)
+Calling free...(0x161ebc0)
+Calling free...(0x161eda0)
+Calling free...(0x161d8f8)
+Calling free...(0x161eb20)
+Calling free...(0x161dc50)
+Calling free...(0x161e2b0)
+Calling free...(0x161d8d0)
+Calling free...(0x161efa8)
+Calling free...(0x161d948)
+Calling free...(0x161e670)
+Calling free...(0x161d8a8)
+Calling free...(0x161dd90)
+Calling free...(0x161f430)
+Calling free...(0x161e210)
+
+mtest> mtp
+=========================================
+=              Memory Manager           =
+=========================================
+* Block size            : 504 Bytes
+* Number of blocks      : 11
+* Free mem in last block: 304
+* Recycle list          : 
+[  0] = 23        
+=========================================
+=             class MemTest             =
+=========================================
+Object list ---
+xxxoxooooooooxooxxxoxooooooxoooxoooxooooooooooxooo
+oxoooooooooxoooxooooxooooooxooxxoooooooooxooooooxo
+ooxooooooooooooooxoooxooooox
+Array list ---
+
+
+mtest> mtd -r 23 -i 5 -a
+
+mtest> mtn 123 -a 999
+Calling allocArr...(35972)
+Calling MemMgr::getMem...(35972)
+
+mtest> mtn 123 -a 0
+
+mtest> mtn 123 -a 10
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x161f458 to _recycleList[8]
+New MemBlock... 0x161d7d0
+Memory acquired... 0x161f590
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x161f700 to _recycleList[3]
+New MemBlock... 0x161f790
+Memory acquired... 0x161f7c0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x161f930 to _recycleList[3]
+New MemBlock... 0x161f9c0
+Memory acquired... 0x161f9f0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x161fb60 to _recycleList[3]
+New MemBlock... 0x161fbf0
+Memory acquired... 0x161fc20
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x161fd90 to _recycleList[3]
+New MemBlock... 0x161fe20
+Memory acquired... 0x161fe50
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x161ffc0 to _recycleList[3]
+New MemBlock... 0x1620050
+Memory acquired... 0x1620080
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x16201f0 to _recycleList[3]
+New MemBlock... 0x1620280
+Memory acquired... 0x16202b0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1620420 to _recycleList[3]
+New MemBlock... 0x16204b0
+Memory acquired... 0x16204e0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1620650 to _recycleList[3]
+New MemBlock... 0x16206e0
+Memory acquired... 0x1620710
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1620880 to _recycleList[3]
+New MemBlock... 0x1620910
+Memory acquired... 0x1620940
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1620ab0 to _recycleList[3]
+New MemBlock... 0x1620b40
+Memory acquired... 0x1620b70
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1620ce0 to _recycleList[3]
+New MemBlock... 0x1620d70
+Memory acquired... 0x1620da0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1620f10 to _recycleList[3]
+New MemBlock... 0x1620fa0
+Memory acquired... 0x1620fd0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1621140 to _recycleList[3]
+New MemBlock... 0x16211d0
+Memory acquired... 0x1621200
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1621370 to _recycleList[3]
+New MemBlock... 0x1621400
+Memory acquired... 0x1621430
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x16215a0 to _recycleList[3]
+New MemBlock... 0x1621630
+Memory acquired... 0x1621660
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x16217d0 to _recycleList[3]
+New MemBlock... 0x1621860
+Memory acquired... 0x1621890
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1621a00 to _recycleList[3]
+New MemBlock... 0x1621a90
+Memory acquired... 0x1621ac0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1621c30 to _recycleList[3]
+New MemBlock... 0x1621cc0
+Memory acquired... 0x1621cf0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1621e60 to _recycleList[3]
+New MemBlock... 0x1621ef0
+Memory acquired... 0x1621f20
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1622090 to _recycleList[3]
+New MemBlock... 0x1622120
+Memory acquired... 0x1622150
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x16222c0 to _recycleList[3]
+New MemBlock... 0x1622350
+Memory acquired... 0x1622380
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x16224f0 to _recycleList[3]
+New MemBlock... 0x1622580
+Memory acquired... 0x16225b0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1622720 to _recycleList[3]
+New MemBlock... 0x16227b0
+Memory acquired... 0x16227e0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1622950 to _recycleList[3]
+New MemBlock... 0x16229e0
+Memory acquired... 0x1622a10
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1622b80 to _recycleList[3]
+New MemBlock... 0x1622c10
+Memory acquired... 0x1622c40
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1622db0 to _recycleList[3]
+New MemBlock... 0x1622e40
+Memory acquired... 0x1622e70
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1622fe0 to _recycleList[3]
+New MemBlock... 0x1623070
+Memory acquired... 0x16230a0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1623210 to _recycleList[3]
+New MemBlock... 0x16232a0
+Memory acquired... 0x16232d0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1623440 to _recycleList[3]
+New MemBlock... 0x16234d0
+Memory acquired... 0x1623500
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1623670 to _recycleList[3]
+New MemBlock... 0x1623700
+Memory acquired... 0x1623730
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x16238a0 to _recycleList[3]
+New MemBlock... 0x1623930
+Memory acquired... 0x1623960
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1623ad0 to _recycleList[3]
+New MemBlock... 0x1623b60
+Memory acquired... 0x1623b90
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1623d00 to _recycleList[3]
+New MemBlock... 0x1623d90
+Memory acquired... 0x1623dc0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1623f30 to _recycleList[3]
+New MemBlock... 0x1623fc0
+Memory acquired... 0x1623ff0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1624160 to _recycleList[3]
+New MemBlock... 0x16241f0
+Memory acquired... 0x1624220
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1624390 to _recycleList[3]
+New MemBlock... 0x1624420
+Memory acquired... 0x1624450
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x16245c0 to _recycleList[3]
+New MemBlock... 0x1624650
+Memory acquired... 0x1624680
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x16247f0 to _recycleList[3]
+New MemBlock... 0x1624880
+Memory acquired... 0x16248b0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1624a20 to _recycleList[3]
+New MemBlock... 0x1624ab0
+Memory acquired... 0x1624ae0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1624c50 to _recycleList[3]
+New MemBlock... 0x1624ce0
+Memory acquired... 0x1624d10
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1624e80 to _recycleList[3]
+New MemBlock... 0x1624f10
+Memory acquired... 0x1624f40
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x16250b0 to _recycleList[3]
+New MemBlock... 0x1625140
+Memory acquired... 0x1625170
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x16252e0 to _recycleList[3]
+New MemBlock... 0x1625370
+Memory acquired... 0x16253a0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1625510 to _recycleList[3]
+New MemBlock... 0x16255a0
+Memory acquired... 0x16255d0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1625740 to _recycleList[3]
+New MemBlock... 0x16257d0
+Memory acquired... 0x1625800
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1625970 to _recycleList[3]
+New MemBlock... 0x1625a00
+Memory acquired... 0x1625a30
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1625ba0 to _recycleList[3]
+New MemBlock... 0x1625c30
+Memory acquired... 0x1625c60
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1625dd0 to _recycleList[3]
+New MemBlock... 0x1625e60
+Memory acquired... 0x1625e90
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1626000 to _recycleList[3]
+New MemBlock... 0x1626090
+Memory acquired... 0x16260c0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1626230 to _recycleList[3]
+New MemBlock... 0x16262c0
+Memory acquired... 0x16262f0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1626460 to _recycleList[3]
+New MemBlock... 0x16264f0
+Memory acquired... 0x1626520
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1626690 to _recycleList[3]
+New MemBlock... 0x1626720
+Memory acquired... 0x1626750
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x16268c0 to _recycleList[3]
+New MemBlock... 0x1626950
+Memory acquired... 0x1626980
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1626af0 to _recycleList[3]
+New MemBlock... 0x1626b80
+Memory acquired... 0x1626bb0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1626d20 to _recycleList[3]
+New MemBlock... 0x1626db0
+Memory acquired... 0x1626de0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1626f50 to _recycleList[3]
+New MemBlock... 0x1626fe0
+Memory acquired... 0x1627010
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1627180 to _recycleList[3]
+New MemBlock... 0x1627210
+Memory acquired... 0x1627240
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x16273b0 to _recycleList[3]
+New MemBlock... 0x1627440
+Memory acquired... 0x1627470
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x16275e0 to _recycleList[3]
+New MemBlock... 0x1627670
+Memory acquired... 0x16276a0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1627810 to _recycleList[3]
+New MemBlock... 0x16278a0
+Memory acquired... 0x16278d0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1627a40 to _recycleList[3]
+New MemBlock... 0x1627ad0
+Memory acquired... 0x1627b00
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1627c70 to _recycleList[3]
+New MemBlock... 0x1627d00
+Memory acquired... 0x1627d30
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1627ea0 to _recycleList[3]
+New MemBlock... 0x1627f30
+Memory acquired... 0x1627f60
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x16280d0 to _recycleList[3]
+New MemBlock... 0x1628160
+Memory acquired... 0x1628190
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1628300 to _recycleList[3]
+New MemBlock... 0x1628390
+Memory acquired... 0x16283c0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1628530 to _recycleList[3]
+New MemBlock... 0x16285c0
+Memory acquired... 0x16285f0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1628760 to _recycleList[3]
+New MemBlock... 0x16287f0
+Memory acquired... 0x1628820
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1628990 to _recycleList[3]
+New MemBlock... 0x1628a20
+Memory acquired... 0x1628a50
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1628bc0 to _recycleList[3]
+New MemBlock... 0x1628c50
+Memory acquired... 0x1628c80
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1628df0 to _recycleList[3]
+New MemBlock... 0x1628e80
+Memory acquired... 0x1628eb0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1629020 to _recycleList[3]
+New MemBlock... 0x16290b0
+Memory acquired... 0x16290e0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1629250 to _recycleList[3]
+New MemBlock... 0x16292e0
+Memory acquired... 0x1629310
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1629480 to _recycleList[3]
+New MemBlock... 0x1629510
+Memory acquired... 0x1629540
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x16296b0 to _recycleList[3]
+New MemBlock... 0x1629740
+Memory acquired... 0x1629770
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x16298e0 to _recycleList[3]
+New MemBlock... 0x1629970
+Memory acquired... 0x16299a0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1629b10 to _recycleList[3]
+New MemBlock... 0x1629ba0
+Memory acquired... 0x1629bd0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1629d40 to _recycleList[3]
+New MemBlock... 0x1629dd0
+Memory acquired... 0x1629e00
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1629f70 to _recycleList[3]
+New MemBlock... 0x162a000
+Memory acquired... 0x162a030
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x162a1a0 to _recycleList[3]
+New MemBlock... 0x162a230
+Memory acquired... 0x162a260
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x162a3d0 to _recycleList[3]
+New MemBlock... 0x162a460
+Memory acquired... 0x162a490
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x162a600 to _recycleList[3]
+New MemBlock... 0x162a690
+Memory acquired... 0x162a6c0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x162a830 to _recycleList[3]
+New MemBlock... 0x162a8c0
+Memory acquired... 0x162a8f0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x162aa60 to _recycleList[3]
+New MemBlock... 0x162aaf0
+Memory acquired... 0x162ab20
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x162ac90 to _recycleList[3]
+New MemBlock... 0x162ad20
+Memory acquired... 0x162ad50
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x162aec0 to _recycleList[3]
+New MemBlock... 0x162af50
+Memory acquired... 0x162af80
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x162b0f0 to _recycleList[3]
+New MemBlock... 0x162b180
+Memory acquired... 0x162b1b0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x162b320 to _recycleList[3]
+New MemBlock... 0x162b3b0
+Memory acquired... 0x162b3e0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x162b550 to _recycleList[3]
+New MemBlock... 0x162b5e0
+Memory acquired... 0x162b610
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x162b780 to _recycleList[3]
+New MemBlock... 0x162b810
+Memory acquired... 0x162b840
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x162b9b0 to _recycleList[3]
+New MemBlock... 0x162ba40
+Memory acquired... 0x162ba70
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x162bbe0 to _recycleList[3]
+New MemBlock... 0x162bc70
+Memory acquired... 0x162bca0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x162be10 to _recycleList[3]
+New MemBlock... 0x162bea0
+Memory acquired... 0x162bed0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x162c040 to _recycleList[3]
+New MemBlock... 0x162c0d0
+Memory acquired... 0x162c100
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x162c270 to _recycleList[3]
+New MemBlock... 0x162c300
+Memory acquired... 0x162c330
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x162c4a0 to _recycleList[3]
+New MemBlock... 0x162c530
+Memory acquired... 0x162c560
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x162c6d0 to _recycleList[3]
+New MemBlock... 0x162c760
+Memory acquired... 0x162c790
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x162c900 to _recycleList[3]
+New MemBlock... 0x162c990
+Memory acquired... 0x162c9c0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x162cb30 to _recycleList[3]
+New MemBlock... 0x162cbc0
+Memory acquired... 0x162cbf0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x162cd60 to _recycleList[3]
+New MemBlock... 0x162cdf0
+Memory acquired... 0x162ce20
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x162cf90 to _recycleList[3]
+New MemBlock... 0x162d020
+Memory acquired... 0x162d050
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x162d1c0 to _recycleList[3]
+New MemBlock... 0x162d250
+Memory acquired... 0x162d280
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x162d3f0 to _recycleList[3]
+New MemBlock... 0x162d480
+Memory acquired... 0x162d4b0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x162d620 to _recycleList[3]
+New MemBlock... 0x162d6b0
+Memory acquired... 0x16350e0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1635250 to _recycleList[3]
+New MemBlock... 0x161db80
+Memory acquired... 0x16352e0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1635450 to _recycleList[3]
+New MemBlock... 0x161dbb0
+Memory acquired... 0x16354e0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1635650 to _recycleList[3]
+New MemBlock... 0x162d6e0
+Memory acquired... 0x16356e0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1635850 to _recycleList[3]
+New MemBlock... 0x162d710
+Memory acquired... 0x16358e0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1635a50 to _recycleList[3]
+New MemBlock... 0x162d740
+Memory acquired... 0x1635ae0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1635c50 to _recycleList[3]
+New MemBlock... 0x162d770
+Memory acquired... 0x1635ce0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1635e50 to _recycleList[3]
+New MemBlock... 0x162d7a0
+Memory acquired... 0x1635ee0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1636050 to _recycleList[3]
+New MemBlock... 0x16360e0
+Memory acquired... 0x1636110
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1636280 to _recycleList[3]
+New MemBlock... 0x1636310
+Memory acquired... 0x1636340
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x16364b0 to _recycleList[3]
+New MemBlock... 0x1636540
+Memory acquired... 0x1636570
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x16366e0 to _recycleList[3]
+New MemBlock... 0x1636770
+Memory acquired... 0x16367a0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1636910 to _recycleList[3]
+New MemBlock... 0x16369a0
+Memory acquired... 0x16369d0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1636b40 to _recycleList[3]
+New MemBlock... 0x1636bd0
+Memory acquired... 0x1636c00
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1636d70 to _recycleList[3]
+New MemBlock... 0x1636e00
+Memory acquired... 0x1636e30
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1636fa0 to _recycleList[3]
+New MemBlock... 0x1637030
+Memory acquired... 0x1637060
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x16371d0 to _recycleList[3]
+New MemBlock... 0x1637260
+Memory acquired... 0x1637290
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1637400 to _recycleList[3]
+New MemBlock... 0x1637490
+Memory acquired... 0x16374c0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1637630 to _recycleList[3]
+New MemBlock... 0x16376c0
+Memory acquired... 0x16376f0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1637860 to _recycleList[3]
+New MemBlock... 0x16378f0
+Memory acquired... 0x1637920
+
+mtest> mtd -ARR -i 54
+Calling freeArr...(0x1626bb0)
+>> Array size = 10
+Recycling 0x1626bb0 to _recycleList[10]
+
+mtest> mtp
+=========================================
+=              Memory Manager           =
+=========================================
+* Block size            : 504 Bytes
+* Number of blocks      : 134
+* Free mem in last block: 136
+* Recycle list          : 
+[  0] = 23        [  3] = 122       [  8] = 1         [ 10] = 1         
+
+=========================================
+=             class MemTest             =
+=========================================
+Object list ---
+xxxoxooooooooxooxxxoxooooooxoooxoooxooooooooooxooo
+oxoooooooooxoooxooooxooooooxooxxoooooooooxooooooxo
+ooxooooooooooooooxoooxooooox
+Array list ---
+oooooooooooooooooooooooooooooooooooooooooooooooooo
+ooooxooooooooooooooooooooooooooooooooooooooooooooo
+ooooooooooooooooooooooo
+
+mtest> mtd -a -r 100
+Calling freeArr...(0x1627f60)
+>> Array size = 10
+Recycling 0x1627f60 to _recycleList[10]
+Calling freeArr...(0x16350e0)
+>> Array size = 10
+Recycling 0x16350e0 to _recycleList[10]
+Calling freeArr...(0x16299a0)
+>> Array size = 10
+Recycling 0x16299a0 to _recycleList[10]
+Calling freeArr...(0x1624450)
+>> Array size = 10
+Recycling 0x1624450 to _recycleList[10]
+Calling freeArr...(0x162a030)
+>> Array size = 10
+Recycling 0x162a030 to _recycleList[10]
+Calling freeArr...(0x1628190)
+>> Array size = 10
+Recycling 0x1628190 to _recycleList[10]
+Calling freeArr...(0x16278d0)
+>> Array size = 10
+Recycling 0x16278d0 to _recycleList[10]
+Calling freeArr...(0x1637290)
+>> Array size = 10
+Recycling 0x1637290 to _recycleList[10]
+Calling freeArr...(0x1624220)
+>> Array size = 10
+Recycling 0x1624220 to _recycleList[10]
+Calling freeArr...(0x162c330)
+>> Array size = 10
+Recycling 0x162c330 to _recycleList[10]
+Calling freeArr...(0x16260c0)
+>> Array size = 10
+Recycling 0x16260c0 to _recycleList[10]
+Calling freeArr...(0x1635ce0)
+>> Array size = 10
+Recycling 0x1635ce0 to _recycleList[10]
+Calling freeArr...(0x1623ff0)
+>> Array size = 10
+Recycling 0x1623ff0 to _recycleList[10]
+Calling freeArr...(0x16253a0)
+>> Array size = 10
+Recycling 0x16253a0 to _recycleList[10]
+Calling freeArr...(0x162ce20)
+>> Array size = 10
+Recycling 0x162ce20 to _recycleList[10]
+Calling freeArr...(0x1636570)
+>> Array size = 10
+Recycling 0x1636570 to _recycleList[10]
+Calling freeArr...(0x1620710)
+>> Array size = 10
+Recycling 0x1620710 to _recycleList[10]
+Calling freeArr...(0x1636c00)
+>> Array size = 10
+Recycling 0x1636c00 to _recycleList[10]
+Calling freeArr...(0x1620b70)
+>> Array size = 10
+Recycling 0x1620b70 to _recycleList[10]
+Calling freeArr...(0x16227e0)
+>> Array size = 10
+Recycling 0x16227e0 to _recycleList[10]
+Calling freeArr...(0x162a6c0)
+>> Array size = 10
+Recycling 0x162a6c0 to _recycleList[10]
+Calling freeArr...(0x1625170)
+>> Array size = 10
+Recycling 0x1625170 to _recycleList[10]
+Calling freeArr...(0x16204e0)
+>> Array size = 10
+Recycling 0x16204e0 to _recycleList[10]
+Calling freeArr...(0x161f9f0)
+>> Array size = 10
+Recycling 0x161f9f0 to _recycleList[10]
+Calling freeArr...(0x1627010)
+>> Array size = 10
+Recycling 0x1627010 to _recycleList[10]
+Calling freeArr...(0x1623500)
+>> Array size = 10
+Recycling 0x1623500 to _recycleList[10]
+Calling freeArr...(0x1635ee0)
+>> Array size = 10
+Recycling 0x1635ee0 to _recycleList[10]
+Calling freeArr...(0x16352e0)
+>> Array size = 10
+Recycling 0x16352e0 to _recycleList[10]
+Calling freeArr...(0x1623b90)
+>> Array size = 10
+Recycling 0x1623b90 to _recycleList[10]
+Calling freeArr...(0x16285f0)
+>> Array size = 10
+Recycling 0x16285f0 to _recycleList[10]
+Calling freeArr...(0x1625a30)
+>> Array size = 10
+Recycling 0x1625a30 to _recycleList[10]
+Calling freeArr...(0x162c100)
+>> Array size = 10
+Recycling 0x162c100 to _recycleList[10]
+Calling freeArr...(0x162a8f0)
+>> Array size = 10
+Recycling 0x162a8f0 to _recycleList[10]
+Calling freeArr...(0x16283c0)
+>> Array size = 10
+Recycling 0x16283c0 to _recycleList[10]
+Calling freeArr...(0x161fe50)
+>> Array size = 10
+Recycling 0x161fe50 to _recycleList[10]
+Calling freeArr...(0x1626980)
+>> Array size = 10
+Recycling 0x1626980 to _recycleList[10]
+Calling freeArr...(0x16367a0)
+>> Array size = 10
+Recycling 0x16367a0 to _recycleList[10]
+Calling freeArr...(0x162b610)
+>> Array size = 10
+Recycling 0x162b610 to _recycleList[10]
+Calling freeArr...(0x162ba70)
+>> Array size = 10
+Recycling 0x162ba70 to _recycleList[10]
+Calling freeArr...(0x162ad50)
+>> Array size = 10
+Recycling 0x162ad50 to _recycleList[10]
+Calling freeArr...(0x1622150)
+>> Array size = 10
+Recycling 0x1622150 to _recycleList[10]
+Calling freeArr...(0x1635ae0)
+>> Array size = 10
+Recycling 0x1635ae0 to _recycleList[10]
+Calling freeArr...(0x162d280)
+>> Array size = 10
+Recycling 0x162d280 to _recycleList[10]
+Calling freeArr...(0x1624d10)
+>> Array size = 10
+Recycling 0x1624d10 to _recycleList[10]
+Calling freeArr...(0x16232d0)
+>> Array size = 10
+Recycling 0x16232d0 to _recycleList[10]
+Calling freeArr...(0x1636e30)
+>> Array size = 10
+Recycling 0x1636e30 to _recycleList[10]
+Calling freeArr...(0x1629310)
+>> Array size = 10
+Recycling 0x1629310 to _recycleList[10]
+Calling freeArr...(0x162a490)
+>> Array size = 10
+Recycling 0x162a490 to _recycleList[10]
+Calling freeArr...(0x16354e0)
+>> Array size = 10
+Recycling 0x16354e0 to _recycleList[10]
+Calling freeArr...(0x162d050)
+>> Array size = 10
+Recycling 0x162d050 to _recycleList[10]
+Calling freeArr...(0x1636340)
+>> Array size = 10
+Recycling 0x1636340 to _recycleList[10]
+Calling freeArr...(0x16276a0)
+>> Array size = 10
+Recycling 0x16276a0 to _recycleList[10]
+Calling freeArr...(0x1622e70)
+>> Array size = 10
+Recycling 0x1622e70 to _recycleList[10]
+Calling freeArr...(0x1621cf0)
+>> Array size = 10
+Recycling 0x1621cf0 to _recycleList[10]
+Calling freeArr...(0x1629bd0)
+>> Array size = 10
+Recycling 0x1629bd0 to _recycleList[10]
+Calling freeArr...(0x162c790)
+>> Array size = 10
+Recycling 0x162c790 to _recycleList[10]
+Calling freeArr...(0x1624680)
+>> Array size = 10
+Recycling 0x1624680 to _recycleList[10]
+Calling freeArr...(0x16230a0)
+>> Array size = 10
+Recycling 0x16230a0 to _recycleList[10]
+Calling freeArr...(0x1623dc0)
+>> Array size = 10
+Recycling 0x1623dc0 to _recycleList[10]
+Calling freeArr...(0x1628a50)
+>> Array size = 10
+Recycling 0x1628a50 to _recycleList[10]
+Calling freeArr...(0x1626520)
+>> Array size = 10
+Recycling 0x1626520 to _recycleList[10]
+Calling freeArr...(0x1636110)
+>> Array size = 10
+Recycling 0x1636110 to _recycleList[10]
+Calling freeArr...(0x1620fd0)
+>> Array size = 10
+Recycling 0x1620fd0 to _recycleList[10]
+Calling freeArr...(0x1621660)
+>> Array size = 10
+Recycling 0x1621660 to _recycleList[10]
+Calling freeArr...(0x16376f0)
+>> Array size = 10
+Recycling 0x16376f0 to _recycleList[10]
+Calling freeArr...(0x16369d0)
+>> Array size = 10
+Recycling 0x16369d0 to _recycleList[10]
+Calling freeArr...(0x1625c60)
+>> Array size = 10
+Recycling 0x1625c60 to _recycleList[10]
+Calling freeArr...(0x162bed0)
+>> Array size = 10
+Recycling 0x162bed0 to _recycleList[10]
+Calling freeArr...(0x1625800)
+>> Array size = 10
+Recycling 0x1625800 to _recycleList[10]
+
+mtest> mtp
+=========================================
+=              Memory Manager           =
+=========================================
+* Block size            : 504 Bytes
+* Number of blocks      : 134
+* Free mem in last block: 136
+* Recycle list          : 
+[  0] = 23        [  3] = 122       [  8] = 1         [ 10] = 70        
+
+=========================================
+=             class MemTest             =
+=========================================
+Object list ---
+xxxoxooooooooxooxxxoxooooooxoooxoooxooooooooooxooo
+oxoooooooooxoooxooooxooooooxooxxoooooooooxooooooxo
+ooxooooooooooooooxoooxooooox
+Array list ---
+ooxoxooxxoxoxooxooxoxooxooxxxxooxxxxxxooxoxxoxxxox
+oxoxxoxooxxooxxxxoxoooxooxxoxoxxxoxoooxoxoxxxoxoox
+xxoxxxooxxxxxxxxxxoxoxo
+
+mtest> mtn 60 -a 11
+Calling allocArr...(404)
+Calling MemMgr::getMem...(404)
+Recycling 0x1637a90 to _recycleList[3]
+New MemBlock... 0x161d800
+Memory acquired... 0x161de90
+Calling allocArr...(404)
+Calling MemMgr::getMem...(404)
+Recycling 0x161e028 to _recycleList[2]
+New MemBlock... 0x161e090
+Memory acquired... 0x1638330
+Calling allocArr...(404)
+Calling MemMgr::getMem...(404)
+Recycling 0x16384c8 to _recycleList[2]
+New MemBlock... 0x161db20
+Memory acquired... 0x1638530
+Calling allocArr...(404)
+Calling MemMgr::getMem...(404)
+Recycling 0x16386c8 to _recycleList[2]
+New MemBlock... 0x161db50
+Memory acquired... 0x1638730
+Calling allocArr...(404)
+Calling MemMgr::getMem...(404)
+Recycling 0x16388c8 to _recycleList[2]
+New MemBlock... 0x161e0c0
+Memory acquired... 0x1638930
+Calling allocArr...(404)
+Calling MemMgr::getMem...(404)
+Recycling 0x1638ac8 to _recycleList[2]
+New MemBlock... 0x161e0f0
+Memory acquired... 0x1638b30
+Calling allocArr...(404)
+Calling MemMgr::getMem...(404)
+Recycling 0x1638cc8 to _recycleList[2]
+New MemBlock... 0x161e120
+Memory acquired... 0x1638d30
+Calling allocArr...(404)
+Calling MemMgr::getMem...(404)
+Recycling 0x1638ec8 to _recycleList[2]
+New MemBlock... 0x161e150
+Memory acquired... 0x1638f30
+Calling allocArr...(404)
+Calling MemMgr::getMem...(404)
+Recycling 0x16390c8 to _recycleList[2]
+New MemBlock... 0x161e180
+Memory acquired... 0x1639130
+Calling allocArr...(404)
+Calling MemMgr::getMem...(404)
+Recycling 0x16392c8 to _recycleList[2]
+New MemBlock... 0x161e1b0
+Memory acquired... 0x1639330
+Calling allocArr...(404)
+Calling MemMgr::getMem...(404)
+Recycling 0x16394c8 to _recycleList[2]
+New MemBlock... 0x161e1e0
+Memory acquired... 0x1639530
+Calling allocArr...(404)
+Calling MemMgr::getMem...(404)
+Recycling 0x16396c8 to _recycleList[2]
+New MemBlock... 0x1639730
+Memory acquired... 0x1639760
+Calling allocArr...(404)
+Calling MemMgr::getMem...(404)
+Recycling 0x16398f8 to _recycleList[2]
+New MemBlock... 0x1639960
+Memory acquired... 0x1639990
+Calling allocArr...(404)
+Calling MemMgr::getMem...(404)
+Recycling 0x1639b28 to _recycleList[2]
+New MemBlock... 0x1639b90
+Memory acquired... 0x1639bc0
+Calling allocArr...(404)
+Calling MemMgr::getMem...(404)
+Recycling 0x1639d58 to _recycleList[2]
+New MemBlock... 0x1639dc0
+Memory acquired... 0x1639df0
+Calling allocArr...(404)
+Calling MemMgr::getMem...(404)
+Recycling 0x1639f88 to _recycleList[2]
+New MemBlock... 0x1639ff0
+Memory acquired... 0x163a020
+Calling allocArr...(404)
+Calling MemMgr::getMem...(404)
+Recycling 0x163a1b8 to _recycleList[2]
+New MemBlock... 0x163a220
+Memory acquired... 0x163a250
+Calling allocArr...(404)
+Calling MemMgr::getMem...(404)
+Recycling 0x163a3e8 to _recycleList[2]
+New MemBlock... 0x163a450
+Memory acquired... 0x163a480
+Calling allocArr...(404)
+Calling MemMgr::getMem...(404)
+Recycling 0x163a618 to _recycleList[2]
+New MemBlock... 0x163a680
+Memory acquired... 0x163a6b0
+Calling allocArr...(404)
+Calling MemMgr::getMem...(404)
+Recycling 0x163a848 to _recycleList[2]
+New MemBlock... 0x163a8b0
+Memory acquired... 0x163a8e0
+Calling allocArr...(404)
+Calling MemMgr::getMem...(404)
+Recycling 0x163aa78 to _recycleList[2]
+New MemBlock... 0x163aae0
+Memory acquired... 0x163ab10
+Calling allocArr...(404)
+Calling MemMgr::getMem...(404)
+Recycling 0x163aca8 to _recycleList[2]
+New MemBlock... 0x163ad10
+Memory acquired... 0x163ad40
+Calling allocArr...(404)
+Calling MemMgr::getMem...(404)
+Recycling 0x163aed8 to _recycleList[2]
+New MemBlock... 0x163af40
+Memory acquired... 0x163af70
+Calling allocArr...(404)
+Calling MemMgr::getMem...(404)
+Recycling 0x163b108 to _recycleList[2]
+New MemBlock... 0x163b170
+Memory acquired... 0x163b1a0
+Calling allocArr...(404)
+Calling MemMgr::getMem...(404)
+Recycling 0x163b338 to _recycleList[2]
+New MemBlock... 0x163b3a0
+Memory acquired... 0x163b3d0
+Calling allocArr...(404)
+Calling MemMgr::getMem...(404)
+Recycling 0x163b568 to _recycleList[2]
+New MemBlock... 0x163b5d0
+Memory acquired... 0x163b600
+Calling allocArr...(404)
+Calling MemMgr::getMem...(404)
+Recycling 0x163b798 to _recycleList[2]
+New MemBlock... 0x163b800
+Memory acquired... 0x163b830
+Calling allocArr...(404)
+Calling MemMgr::getMem...(404)
+Recycling 0x163b9c8 to _recycleList[2]
+New MemBlock... 0x163ba30
+Memory acquired... 0x163ba60
+Calling allocArr...(404)
+Calling MemMgr::getMem...(404)
+Recycling 0x163bbf8 to _recycleList[2]
+New MemBlock... 0x163bc60
+Memory acquired... 0x163bc90
+Calling allocArr...(404)
+Calling MemMgr::getMem...(404)
+Recycling 0x163be28 to _recycleList[2]
+New MemBlock... 0x163be90
+Memory acquired... 0x163bec0
+Calling allocArr...(404)
+Calling MemMgr::getMem...(404)
+Recycling 0x163c058 to _recycleList[2]
+New MemBlock... 0x163c0c0
+Memory acquired... 0x163c0f0
+Calling allocArr...(404)
+Calling MemMgr::getMem...(404)
+Recycling 0x163c288 to _recycleList[2]
+New MemBlock... 0x163c2f0
+Memory acquired... 0x163c320
+Calling allocArr...(404)
+Calling MemMgr::getMem...(404)
+Recycling 0x163c4b8 to _recycleList[2]
+New MemBlock... 0x163c520
+Memory acquired... 0x163c550
+Calling allocArr...(404)
+Calling MemMgr::getMem...(404)
+Recycling 0x163c6e8 to _recycleList[2]
+New MemBlock... 0x163c750
+Memory acquired... 0x163c780
+Calling allocArr...(404)
+Calling MemMgr::getMem...(404)
+Recycling 0x163c918 to _recycleList[2]
+New MemBlock... 0x163c980
+Memory acquired... 0x163c9b0
+Calling allocArr...(404)
+Calling MemMgr::getMem...(404)
+Recycling 0x163cb48 to _recycleList[2]
+New MemBlock... 0x163cbb0
+Memory acquired... 0x163cbe0
+Calling allocArr...(404)
+Calling MemMgr::getMem...(404)
+Recycling 0x163cd78 to _recycleList[2]
+New MemBlock... 0x163cde0
+Memory acquired... 0x163ce10
+Calling allocArr...(404)
+Calling MemMgr::getMem...(404)
+Recycling 0x163cfa8 to _recycleList[2]
+New MemBlock... 0x163d010
+Memory acquired... 0x163d040
+Calling allocArr...(404)
+Calling MemMgr::getMem...(404)
+Recycling 0x163d1d8 to _recycleList[2]
+New MemBlock... 0x163d240
+Memory acquired... 0x163d270
+Calling allocArr...(404)
+Calling MemMgr::getMem...(404)
+Recycling 0x163d408 to _recycleList[2]
+New MemBlock... 0x163d470
+Memory acquired... 0x163d4a0
+Calling allocArr...(404)
+Calling MemMgr::getMem...(404)
+Recycling 0x163d638 to _recycleList[2]
+New MemBlock... 0x163d6a0
+Memory acquired... 0x163d6d0
+Calling allocArr...(404)
+Calling MemMgr::getMem...(404)
+Recycling 0x163d868 to _recycleList[2]
+New MemBlock... 0x163d8d0
+Memory acquired... 0x163d900
+Calling allocArr...(404)
+Calling MemMgr::getMem...(404)
+Recycling 0x163da98 to _recycleList[2]
+New MemBlock... 0x163db00
+Memory acquired... 0x163db30
+Calling allocArr...(404)
+Calling MemMgr::getMem...(404)
+Recycling 0x163dcc8 to _recycleList[2]
+New MemBlock... 0x163dd30
+Memory acquired... 0x163dd60
+Calling allocArr...(404)
+Calling MemMgr::getMem...(404)
+Recycling 0x163def8 to _recycleList[2]
+New MemBlock... 0x163df60
+Memory acquired... 0x163df90
+Calling allocArr...(404)
+Calling MemMgr::getMem...(404)
+Recycling 0x163e128 to _recycleList[2]
+New MemBlock... 0x163e190
+Memory acquired... 0x163e1c0
+Calling allocArr...(404)
+Calling MemMgr::getMem...(404)
+Recycling 0x163e358 to _recycleList[2]
+New MemBlock... 0x163e3c0
+Memory acquired... 0x163e3f0
+Calling allocArr...(404)
+Calling MemMgr::getMem...(404)
+Recycling 0x163e588 to _recycleList[2]
+New MemBlock... 0x163e5f0
+Memory acquired... 0x163e620
+Calling allocArr...(404)
+Calling MemMgr::getMem...(404)
+Recycling 0x163e7b8 to _recycleList[2]
+New MemBlock... 0x163e820
+Memory acquired... 0x163e850
+Calling allocArr...(404)
+Calling MemMgr::getMem...(404)
+Recycling 0x163e9e8 to _recycleList[2]
+New MemBlock... 0x163ea50
+Memory acquired... 0x163ea80
+Calling allocArr...(404)
+Calling MemMgr::getMem...(404)
+Recycling 0x163ec18 to _recycleList[2]
+New MemBlock... 0x163ec80
+Memory acquired... 0x163ecb0
+Calling allocArr...(404)
+Calling MemMgr::getMem...(404)
+Recycling 0x163ee48 to _recycleList[2]
+New MemBlock... 0x163eeb0
+Memory acquired... 0x163eee0
+Calling allocArr...(404)
+Calling MemMgr::getMem...(404)
+Recycling 0x163f078 to _recycleList[2]
+New MemBlock... 0x163f0e0
+Memory acquired... 0x163f110
+Calling allocArr...(404)
+Calling MemMgr::getMem...(404)
+Recycling 0x163f2a8 to _recycleList[2]
+New MemBlock... 0x163f310
+Memory acquired... 0x163f340
+Calling allocArr...(404)
+Calling MemMgr::getMem...(404)
+Recycling 0x163f4d8 to _recycleList[2]
+New MemBlock... 0x163f540
+Memory acquired... 0x163f570
+Calling allocArr...(404)
+Calling MemMgr::getMem...(404)
+Recycling 0x163f708 to _recycleList[2]
+New MemBlock... 0x163f770
+Memory acquired... 0x163f7a0
+Calling allocArr...(404)
+Calling MemMgr::getMem...(404)
+Recycling 0x163f938 to _recycleList[2]
+New MemBlock... 0x163f9a0
+Memory acquired... 0x163f9d0
+Calling allocArr...(404)
+Calling MemMgr::getMem...(404)
+Recycling 0x163fb68 to _recycleList[2]
+New MemBlock... 0x163fbd0
+Memory acquired... 0x163fc00
+Calling allocArr...(404)
+Calling MemMgr::getMem...(404)
+Recycling 0x163fd98 to _recycleList[2]
+New MemBlock... 0x163fe00
+Memory acquired... 0x163fe30
+Calling allocArr...(404)
+Calling MemMgr::getMem...(404)
+Recycling 0x163ffc8 to _recycleList[2]
+New MemBlock... 0x1640030
+Memory acquired... 0x1640060
+
+mtest> mtn 60 -a 10
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycled from _recycleList[10]...0x1625800
+Memory acquired... 0x1625800
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycled from _recycleList[10]...0x162bed0
+Memory acquired... 0x162bed0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycled from _recycleList[10]...0x1625c60
+Memory acquired... 0x1625c60
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycled from _recycleList[10]...0x16369d0
+Memory acquired... 0x16369d0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycled from _recycleList[10]...0x16376f0
+Memory acquired... 0x16376f0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycled from _recycleList[10]...0x1621660
+Memory acquired... 0x1621660
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycled from _recycleList[10]...0x1620fd0
+Memory acquired... 0x1620fd0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycled from _recycleList[10]...0x1636110
+Memory acquired... 0x1636110
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycled from _recycleList[10]...0x1626520
+Memory acquired... 0x1626520
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycled from _recycleList[10]...0x1628a50
+Memory acquired... 0x1628a50
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycled from _recycleList[10]...0x1623dc0
+Memory acquired... 0x1623dc0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycled from _recycleList[10]...0x16230a0
+Memory acquired... 0x16230a0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycled from _recycleList[10]...0x1624680
+Memory acquired... 0x1624680
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycled from _recycleList[10]...0x162c790
+Memory acquired... 0x162c790
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycled from _recycleList[10]...0x1629bd0
+Memory acquired... 0x1629bd0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycled from _recycleList[10]...0x1621cf0
+Memory acquired... 0x1621cf0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycled from _recycleList[10]...0x1622e70
+Memory acquired... 0x1622e70
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycled from _recycleList[10]...0x16276a0
+Memory acquired... 0x16276a0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycled from _recycleList[10]...0x1636340
+Memory acquired... 0x1636340
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycled from _recycleList[10]...0x162d050
+Memory acquired... 0x162d050
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycled from _recycleList[10]...0x16354e0
+Memory acquired... 0x16354e0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycled from _recycleList[10]...0x162a490
+Memory acquired... 0x162a490
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycled from _recycleList[10]...0x1629310
+Memory acquired... 0x1629310
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycled from _recycleList[10]...0x1636e30
+Memory acquired... 0x1636e30
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycled from _recycleList[10]...0x16232d0
+Memory acquired... 0x16232d0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycled from _recycleList[10]...0x1624d10
+Memory acquired... 0x1624d10
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycled from _recycleList[10]...0x162d280
+Memory acquired... 0x162d280
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycled from _recycleList[10]...0x1635ae0
+Memory acquired... 0x1635ae0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycled from _recycleList[10]...0x1622150
+Memory acquired... 0x1622150
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycled from _recycleList[10]...0x162ad50
+Memory acquired... 0x162ad50
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycled from _recycleList[10]...0x162ba70
+Memory acquired... 0x162ba70
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycled from _recycleList[10]...0x162b610
+Memory acquired... 0x162b610
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycled from _recycleList[10]...0x16367a0
+Memory acquired... 0x16367a0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycled from _recycleList[10]...0x1626980
+Memory acquired... 0x1626980
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycled from _recycleList[10]...0x161fe50
+Memory acquired... 0x161fe50
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycled from _recycleList[10]...0x16283c0
+Memory acquired... 0x16283c0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycled from _recycleList[10]...0x162a8f0
+Memory acquired... 0x162a8f0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycled from _recycleList[10]...0x162c100
+Memory acquired... 0x162c100
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycled from _recycleList[10]...0x1625a30
+Memory acquired... 0x1625a30
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycled from _recycleList[10]...0x16285f0
+Memory acquired... 0x16285f0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycled from _recycleList[10]...0x1623b90
+Memory acquired... 0x1623b90
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycled from _recycleList[10]...0x16352e0
+Memory acquired... 0x16352e0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycled from _recycleList[10]...0x1635ee0
+Memory acquired... 0x1635ee0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycled from _recycleList[10]...0x1623500
+Memory acquired... 0x1623500
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycled from _recycleList[10]...0x1627010
+Memory acquired... 0x1627010
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycled from _recycleList[10]...0x161f9f0
+Memory acquired... 0x161f9f0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycled from _recycleList[10]...0x16204e0
+Memory acquired... 0x16204e0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycled from _recycleList[10]...0x1625170
+Memory acquired... 0x1625170
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycled from _recycleList[10]...0x162a6c0
+Memory acquired... 0x162a6c0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycled from _recycleList[10]...0x16227e0
+Memory acquired... 0x16227e0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycled from _recycleList[10]...0x1620b70
+Memory acquired... 0x1620b70
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycled from _recycleList[10]...0x1636c00
+Memory acquired... 0x1636c00
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycled from _recycleList[10]...0x1620710
+Memory acquired... 0x1620710
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycled from _recycleList[10]...0x1636570
+Memory acquired... 0x1636570
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycled from _recycleList[10]...0x162ce20
+Memory acquired... 0x162ce20
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycled from _recycleList[10]...0x16253a0
+Memory acquired... 0x16253a0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycled from _recycleList[10]...0x1623ff0
+Memory acquired... 0x1623ff0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycled from _recycleList[10]...0x1635ce0
+Memory acquired... 0x1635ce0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycled from _recycleList[10]...0x16260c0
+Memory acquired... 0x16260c0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycled from _recycleList[10]...0x162c330
+Memory acquired... 0x162c330
+
+mtest> mtr
+Resetting memMgr...(0)
+
+mtest> mtn 123 -a 10
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycled from _recycleList[10]...0x1624220
+Memory acquired... 0x1624220
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycled from _recycleList[10]...0x1624440
+Memory acquired... 0x1624440
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+New MemBlock... 0x161d850
+Memory acquired... 0x163fc00
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x163fd70 to _recycleList[3]
+New MemBlock... 0x161da80
+Memory acquired... 0x163f9d0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x163fb40 to _recycleList[3]
+New MemBlock... 0x161e410
+Memory acquired... 0x163f7a0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x163f910 to _recycleList[3]
+New MemBlock... 0x161e640
+Memory acquired... 0x163f570
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x163f6e0 to _recycleList[3]
+New MemBlock... 0x161e870
+Memory acquired... 0x163f340
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x163f4b0 to _recycleList[3]
+New MemBlock... 0x161eaa0
+Memory acquired... 0x163f110
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x163f280 to _recycleList[3]
+New MemBlock... 0x161ecd0
+Memory acquired... 0x163eee0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x163f050 to _recycleList[3]
+New MemBlock... 0x161ef00
+Memory acquired... 0x163ecb0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x163ee20 to _recycleList[3]
+New MemBlock... 0x161f130
+Memory acquired... 0x163ea80
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x163ebf0 to _recycleList[3]
+New MemBlock... 0x161f360
+Memory acquired... 0x163e850
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x163e9c0 to _recycleList[3]
+New MemBlock... 0x161d7d0
+Memory acquired... 0x163e620
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x163e790 to _recycleList[3]
+New MemBlock... 0x161f790
+Memory acquired... 0x163e3f0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x163e560 to _recycleList[3]
+New MemBlock... 0x161f9c0
+Memory acquired... 0x163e1c0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x163e330 to _recycleList[3]
+New MemBlock... 0x161fbf0
+Memory acquired... 0x163df90
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x163e100 to _recycleList[3]
+New MemBlock... 0x161fe20
+Memory acquired... 0x163dd60
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x163ded0 to _recycleList[3]
+New MemBlock... 0x1620050
+Memory acquired... 0x163db30
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x163dca0 to _recycleList[3]
+New MemBlock... 0x1620280
+Memory acquired... 0x163d900
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x163da70 to _recycleList[3]
+New MemBlock... 0x16204b0
+Memory acquired... 0x163d6d0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x163d840 to _recycleList[3]
+New MemBlock... 0x16206e0
+Memory acquired... 0x163d4a0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x163d610 to _recycleList[3]
+New MemBlock... 0x1620910
+Memory acquired... 0x163d270
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x163d3e0 to _recycleList[3]
+New MemBlock... 0x1620b40
+Memory acquired... 0x163d040
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x163d1b0 to _recycleList[3]
+New MemBlock... 0x1620d70
+Memory acquired... 0x163ce10
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x163cf80 to _recycleList[3]
+New MemBlock... 0x1620fa0
+Memory acquired... 0x163cbe0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x163cd50 to _recycleList[3]
+New MemBlock... 0x16211d0
+Memory acquired... 0x163c9b0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x163cb20 to _recycleList[3]
+New MemBlock... 0x1621400
+Memory acquired... 0x163c780
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x163c8f0 to _recycleList[3]
+New MemBlock... 0x1621630
+Memory acquired... 0x163c550
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x163c6c0 to _recycleList[3]
+New MemBlock... 0x1621860
+Memory acquired... 0x163c320
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x163c490 to _recycleList[3]
+New MemBlock... 0x1621a90
+Memory acquired... 0x163c0f0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x163c260 to _recycleList[3]
+New MemBlock... 0x1621cc0
+Memory acquired... 0x163bec0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x163c030 to _recycleList[3]
+New MemBlock... 0x1621ef0
+Memory acquired... 0x163bc90
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x163be00 to _recycleList[3]
+New MemBlock... 0x1622120
+Memory acquired... 0x163ba60
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x163bbd0 to _recycleList[3]
+New MemBlock... 0x1622350
+Memory acquired... 0x163b830
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x163b9a0 to _recycleList[3]
+New MemBlock... 0x1622580
+Memory acquired... 0x163b600
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x163b770 to _recycleList[3]
+New MemBlock... 0x16227b0
+Memory acquired... 0x163b3d0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x163b540 to _recycleList[3]
+New MemBlock... 0x16229e0
+Memory acquired... 0x163b1a0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x163b310 to _recycleList[3]
+New MemBlock... 0x1622c10
+Memory acquired... 0x163af70
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x163b0e0 to _recycleList[3]
+New MemBlock... 0x1622e40
+Memory acquired... 0x163ad40
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x163aeb0 to _recycleList[3]
+New MemBlock... 0x1623070
+Memory acquired... 0x163ab10
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x163ac80 to _recycleList[3]
+New MemBlock... 0x16232a0
+Memory acquired... 0x163a8e0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x163aa50 to _recycleList[3]
+New MemBlock... 0x16234d0
+Memory acquired... 0x163a6b0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x163a820 to _recycleList[3]
+New MemBlock... 0x1623700
+Memory acquired... 0x163a480
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x163a5f0 to _recycleList[3]
+New MemBlock... 0x1623930
+Memory acquired... 0x163a250
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x163a3c0 to _recycleList[3]
+New MemBlock... 0x1623b60
+Memory acquired... 0x163a020
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x163a190 to _recycleList[3]
+New MemBlock... 0x1623d90
+Memory acquired... 0x1639df0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1639f60 to _recycleList[3]
+New MemBlock... 0x1623fc0
+Memory acquired... 0x1639bc0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1639d30 to _recycleList[3]
+New MemBlock... 0x16241f0
+Memory acquired... 0x1639990
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1639b00 to _recycleList[3]
+New MemBlock... 0x1624420
+Memory acquired... 0x1639760
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x16398d0 to _recycleList[3]
+New MemBlock... 0x1624650
+Memory acquired... 0x1637920
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1637a90 to _recycleList[3]
+New MemBlock... 0x1624880
+Memory acquired... 0x16376f0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1637860 to _recycleList[3]
+New MemBlock... 0x1624ab0
+Memory acquired... 0x16374c0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1637630 to _recycleList[3]
+New MemBlock... 0x1624ce0
+Memory acquired... 0x1637290
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1637400 to _recycleList[3]
+New MemBlock... 0x1624f10
+Memory acquired... 0x1637060
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x16371d0 to _recycleList[3]
+New MemBlock... 0x1625140
+Memory acquired... 0x1636e30
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1636fa0 to _recycleList[3]
+New MemBlock... 0x1625370
+Memory acquired... 0x1636c00
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1636d70 to _recycleList[3]
+New MemBlock... 0x16255a0
+Memory acquired... 0x16369d0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1636b40 to _recycleList[3]
+New MemBlock... 0x16257d0
+Memory acquired... 0x16367a0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1636910 to _recycleList[3]
+New MemBlock... 0x1625a00
+Memory acquired... 0x1636570
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x16366e0 to _recycleList[3]
+New MemBlock... 0x1625c30
+Memory acquired... 0x1636340
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x16364b0 to _recycleList[3]
+New MemBlock... 0x1625e60
+Memory acquired... 0x1636110
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1636280 to _recycleList[3]
+New MemBlock... 0x1626090
+Memory acquired... 0x162d4b0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x162d620 to _recycleList[3]
+New MemBlock... 0x16262c0
+Memory acquired... 0x162d280
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x162d3f0 to _recycleList[3]
+New MemBlock... 0x16264f0
+Memory acquired... 0x162d050
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x162d1c0 to _recycleList[3]
+New MemBlock... 0x1626720
+Memory acquired... 0x162ce20
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x162cf90 to _recycleList[3]
+New MemBlock... 0x1626950
+Memory acquired... 0x162cbf0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x162cd60 to _recycleList[3]
+New MemBlock... 0x1626b80
+Memory acquired... 0x162c9c0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x162cb30 to _recycleList[3]
+New MemBlock... 0x1626db0
+Memory acquired... 0x162c790
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x162c900 to _recycleList[3]
+New MemBlock... 0x1626fe0
+Memory acquired... 0x162c560
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x162c6d0 to _recycleList[3]
+New MemBlock... 0x1627210
+Memory acquired... 0x162c330
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x162c4a0 to _recycleList[3]
+New MemBlock... 0x1627440
+Memory acquired... 0x162c100
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x162c270 to _recycleList[3]
+New MemBlock... 0x1627670
+Memory acquired... 0x162bed0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x162c040 to _recycleList[3]
+New MemBlock... 0x16278a0
+Memory acquired... 0x162bca0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x162be10 to _recycleList[3]
+New MemBlock... 0x1627ad0
+Memory acquired... 0x162ba70
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x162bbe0 to _recycleList[3]
+New MemBlock... 0x1627d00
+Memory acquired... 0x162b840
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x162b9b0 to _recycleList[3]
+New MemBlock... 0x1627f30
+Memory acquired... 0x162b610
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x162b780 to _recycleList[3]
+New MemBlock... 0x1628160
+Memory acquired... 0x162b3e0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x162b550 to _recycleList[3]
+New MemBlock... 0x1628390
+Memory acquired... 0x162b1b0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x162b320 to _recycleList[3]
+New MemBlock... 0x16285c0
+Memory acquired... 0x162af80
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x162b0f0 to _recycleList[3]
+New MemBlock... 0x16287f0
+Memory acquired... 0x162ad50
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x162aec0 to _recycleList[3]
+New MemBlock... 0x1628a20
+Memory acquired... 0x162ab20
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x162ac90 to _recycleList[3]
+New MemBlock... 0x1628c50
+Memory acquired... 0x162a8f0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x162aa60 to _recycleList[3]
+New MemBlock... 0x1628e80
+Memory acquired... 0x162a6c0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x162a830 to _recycleList[3]
+New MemBlock... 0x16290b0
+Memory acquired... 0x162a490
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x162a600 to _recycleList[3]
+New MemBlock... 0x16292e0
+Memory acquired... 0x162a260
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x162a3d0 to _recycleList[3]
+New MemBlock... 0x1629510
+Memory acquired... 0x162a030
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x162a1a0 to _recycleList[3]
+New MemBlock... 0x1629740
+Memory acquired... 0x1629e00
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1629f70 to _recycleList[3]
+New MemBlock... 0x1629970
+Memory acquired... 0x1629bd0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1629d40 to _recycleList[3]
+New MemBlock... 0x1629ba0
+Memory acquired... 0x16299a0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1629b10 to _recycleList[3]
+New MemBlock... 0x1629dd0
+Memory acquired... 0x1629770
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x16298e0 to _recycleList[3]
+New MemBlock... 0x162a000
+Memory acquired... 0x1629540
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x16296b0 to _recycleList[3]
+New MemBlock... 0x162a230
+Memory acquired... 0x1629310
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1629480 to _recycleList[3]
+New MemBlock... 0x162a460
+Memory acquired... 0x16290e0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1629250 to _recycleList[3]
+New MemBlock... 0x162a690
+Memory acquired... 0x1628eb0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1629020 to _recycleList[3]
+New MemBlock... 0x162a8c0
+Memory acquired... 0x1628c80
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1628df0 to _recycleList[3]
+New MemBlock... 0x162aaf0
+Memory acquired... 0x1628a50
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1628bc0 to _recycleList[3]
+New MemBlock... 0x162ad20
+Memory acquired... 0x1628820
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1628990 to _recycleList[3]
+New MemBlock... 0x162af50
+Memory acquired... 0x16285f0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1628760 to _recycleList[3]
+New MemBlock... 0x162b180
+Memory acquired... 0x16283c0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1628530 to _recycleList[3]
+New MemBlock... 0x162b3b0
+Memory acquired... 0x1628190
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1628300 to _recycleList[3]
+New MemBlock... 0x162b5e0
+Memory acquired... 0x1627f60
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x16280d0 to _recycleList[3]
+New MemBlock... 0x162b810
+Memory acquired... 0x1627d30
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1627ea0 to _recycleList[3]
+New MemBlock... 0x162ba40
+Memory acquired... 0x1627b00
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1627c70 to _recycleList[3]
+New MemBlock... 0x162bc70
+Memory acquired... 0x16278d0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1627a40 to _recycleList[3]
+New MemBlock... 0x162bea0
+Memory acquired... 0x16276a0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1627810 to _recycleList[3]
+New MemBlock... 0x162c0d0
+Memory acquired... 0x1627470
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x16275e0 to _recycleList[3]
+New MemBlock... 0x162c300
+Memory acquired... 0x1627240
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x16273b0 to _recycleList[3]
+New MemBlock... 0x162c530
+Memory acquired... 0x1627010
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1627180 to _recycleList[3]
+New MemBlock... 0x162c760
+Memory acquired... 0x1626de0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1626f50 to _recycleList[3]
+New MemBlock... 0x162c990
+Memory acquired... 0x1626bb0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1626d20 to _recycleList[3]
+New MemBlock... 0x162cbc0
+Memory acquired... 0x1626980
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1626af0 to _recycleList[3]
+New MemBlock... 0x162cdf0
+Memory acquired... 0x1626750
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x16268c0 to _recycleList[3]
+New MemBlock... 0x162d020
+Memory acquired... 0x1626520
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1626690 to _recycleList[3]
+New MemBlock... 0x162d250
+Memory acquired... 0x16262f0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1626460 to _recycleList[3]
+New MemBlock... 0x162d480
+Memory acquired... 0x16260c0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1626230 to _recycleList[3]
+New MemBlock... 0x162d6b0
+Memory acquired... 0x1625e90
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1626000 to _recycleList[3]
+New MemBlock... 0x161db80
+Memory acquired... 0x1625c60
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1625dd0 to _recycleList[3]
+New MemBlock... 0x161dbb0
+Memory acquired... 0x1625a30
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1625ba0 to _recycleList[3]
+New MemBlock... 0x162d6e0
+Memory acquired... 0x1625800
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1625970 to _recycleList[3]
+New MemBlock... 0x162d710
+Memory acquired... 0x16255d0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1625740 to _recycleList[3]
+New MemBlock... 0x162d740
+Memory acquired... 0x16253a0
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x1625510 to _recycleList[3]
+New MemBlock... 0x162d770
+Memory acquired... 0x1625170
+Calling allocArr...(368)
+Calling MemMgr::getMem...(368)
+Recycling 0x16252e0 to _recycleList[3]
+New MemBlock... 0x16360e0
+Memory acquired... 0x1624f40
+
+mtest> mtd -ARR -i 54
+Calling freeArr...(0x1636e30)
+>> Array size = 10
+Recycling 0x1636e30 to _recycleList[10]
+
+mtest> mtd -a -r 100
+Calling freeArr...(0x163b1a0)
+>> Array size = 10
+Recycling 0x163b1a0 to _recycleList[10]
+Calling freeArr...(0x163c320)
+>> Array size = 10
+Recycling 0x163c320 to _recycleList[10]
+Calling freeArr...(0x162bed0)
+>> Array size = 10
+Recycling 0x162bed0 to _recycleList[10]
+Calling freeArr...(0x163bec0)
+>> Array size = 10
+Recycling 0x163bec0 to _recycleList[10]
+Calling freeArr...(0x163d900)
+>> Array size = 10
+Recycling 0x163d900 to _recycleList[10]
+Calling freeArr...(0x1629540)
+>> Array size = 10
+Recycling 0x1629540 to _recycleList[10]
+Calling freeArr...(0x163df90)
+>> Array size = 10
+Recycling 0x163df90 to _recycleList[10]
+Calling freeArr...(0x16285f0)
+>> Array size = 10
+Recycling 0x16285f0 to _recycleList[10]
+Calling freeArr...(0x163d4a0)
+>> Array size = 10
+Recycling 0x163d4a0 to _recycleList[10]
+Calling freeArr...(0x1629310)
+>> Array size = 10
+Recycling 0x1629310 to _recycleList[10]
+Calling freeArr...(0x163ecb0)
+>> Array size = 10
+Recycling 0x163ecb0 to _recycleList[10]
+Calling freeArr...(0x1625c60)
+>> Array size = 10
+Recycling 0x1625c60 to _recycleList[10]
+Calling freeArr...(0x163f340)
+>> Array size = 10
+Recycling 0x163f340 to _recycleList[10]
+Calling freeArr...(0x162ce20)
+>> Array size = 10
+Recycling 0x162ce20 to _recycleList[10]
+Calling freeArr...(0x163d270)
+>> Array size = 10
+Recycling 0x163d270 to _recycleList[10]
+Calling freeArr...(0x163c0f0)
+>> Array size = 10
+Recycling 0x163c0f0 to _recycleList[10]
+Calling freeArr...(0x16283c0)
+>> Array size = 10
+Recycling 0x16283c0 to _recycleList[10]
+Calling freeArr...(0x162ab20)
+>> Array size = 10
+Recycling 0x162ab20 to _recycleList[10]
+Calling freeArr...(0x1625800)
+>> Array size = 10
+Recycling 0x1625800 to _recycleList[10]
+Calling freeArr...(0x162af80)
+>> Array size = 10
+Recycling 0x162af80 to _recycleList[10]
+Calling freeArr...(0x1628eb0)
+>> Array size = 10
+Recycling 0x1628eb0 to _recycleList[10]
+Calling freeArr...(0x163e850)
+>> Array size = 10
+Recycling 0x163e850 to _recycleList[10]
+Calling freeArr...(0x163dd60)
+>> Array size = 10
+Recycling 0x163dd60 to _recycleList[10]
+Calling freeArr...(0x162d050)
+>> Array size = 10
+Recycling 0x162d050 to _recycleList[10]
+Calling freeArr...(0x163eee0)
+>> Array size = 10
+Recycling 0x163eee0 to _recycleList[10]
+Calling freeArr...(0x163c9b0)
+>> Array size = 10
+Recycling 0x163c9b0 to _recycleList[10]
+Calling freeArr...(0x16369d0)
+>> Array size = 10
+Recycling 0x16369d0 to _recycleList[10]
+Calling freeArr...(0x1627f60)
+>> Array size = 10
+Recycling 0x1627f60 to _recycleList[10]
+Calling freeArr...(0x162c100)
+>> Array size = 10
+Recycling 0x162c100 to _recycleList[10]
+Calling freeArr...(0x16290e0)
+>> Array size = 10
+Recycling 0x16290e0 to _recycleList[10]
+Calling freeArr...(0x163d6d0)
+>> Array size = 10
+Recycling 0x163d6d0 to _recycleList[10]
+Calling freeArr...(0x1624f40)
+>> Array size = 10
+Recycling 0x1624f40 to _recycleList[10]
+Calling freeArr...(0x1626bb0)
+>> Array size = 10
+Recycling 0x1626bb0 to _recycleList[10]
+Calling freeArr...(0x1627010)
+>> Array size = 10
+Recycling 0x1627010 to _recycleList[10]
+Calling freeArr...(0x1624220)
+>> Array size = 10
+Recycling 0x1624220 to _recycleList[10]
+Calling freeArr...(0x16262f0)
+>> Array size = 10
+Recycling 0x16262f0 to _recycleList[10]
+Calling freeArr...(0x162ba70)
+>> Array size = 10
+Recycling 0x162ba70 to _recycleList[10]
+Calling freeArr...(0x163d040)
+>> Array size = 10
+Recycling 0x163d040 to _recycleList[10]
+Calling freeArr...(0x1639760)
+>> Array size = 10
+Recycling 0x1639760 to _recycleList[10]
+Calling freeArr...(0x1626520)
+>> Array size = 10
+Recycling 0x1626520 to _recycleList[10]
+Calling freeArr...(0x163a020)
+>> Array size = 10
+Recycling 0x163a020 to _recycleList[10]
+Calling freeArr...(0x162c790)
+>> Array size = 10
+Recycling 0x162c790 to _recycleList[10]
+Calling freeArr...(0x1636c00)
+>> Array size = 10
+Recycling 0x1636c00 to _recycleList[10]
+Calling freeArr...(0x162a260)
+>> Array size = 10
+Recycling 0x162a260 to _recycleList[10]
+Calling freeArr...(0x163e620)
+>> Array size = 10
+Recycling 0x163e620 to _recycleList[10]
+Calling freeArr...(0x162cbf0)
+>> Array size = 10
+Recycling 0x162cbf0 to _recycleList[10]
+Calling freeArr...(0x163af70)
+>> Array size = 10
+Recycling 0x163af70 to _recycleList[10]
+Calling freeArr...(0x162b1b0)
+>> Array size = 10
+Recycling 0x162b1b0 to _recycleList[10]
+Calling freeArr...(0x163f7a0)
+>> Array size = 10
+Recycling 0x163f7a0 to _recycleList[10]
+Calling freeArr...(0x1627b00)
+>> Array size = 10
+Recycling 0x1627b00 to _recycleList[10]
+Calling freeArr...(0x16253a0)
+>> Array size = 10
+Recycling 0x16253a0 to _recycleList[10]
+Calling freeArr...(0x1626750)
+>> Array size = 10
+Recycling 0x1626750 to _recycleList[10]
+Calling freeArr...(0x162a6c0)
+>> Array size = 10
+Recycling 0x162a6c0 to _recycleList[10]
+Calling freeArr...(0x162d4b0)
+>> Array size = 10
+Recycling 0x162d4b0 to _recycleList[10]
+Calling freeArr...(0x162ad50)
+>> Array size = 10
+Recycling 0x162ad50 to _recycleList[10]
+Calling freeArr...(0x1629e00)
+>> Array size = 10
+Recycling 0x1629e00 to _recycleList[10]
+Calling freeArr...(0x163ad40)
+>> Array size = 10
+Recycling 0x163ad40 to _recycleList[10]
+Calling freeArr...(0x163a8e0)
+>> Array size = 10
+Recycling 0x163a8e0 to _recycleList[10]
+Calling freeArr...(0x163c550)
+>> Array size = 10
+Recycling 0x163c550 to _recycleList[10]
+Calling freeArr...(0x162d280)
+>> Array size = 10
+Recycling 0x162d280 to _recycleList[10]
+Calling freeArr...(0x16255d0)
+>> Array size = 10
+Recycling 0x16255d0 to _recycleList[10]
+Calling freeArr...(0x163b600)
+>> Array size = 10
+Recycling 0x163b600 to _recycleList[10]
+Calling freeArr...(0x16299a0)
+>> Array size = 10
+Recycling 0x16299a0 to _recycleList[10]
+Calling freeArr...(0x163e3f0)
+>> Array size = 10
+Recycling 0x163e3f0 to _recycleList[10]
+Calling freeArr...(0x16367a0)
+>> Array size = 10
+Recycling 0x16367a0 to _recycleList[10]
+Calling freeArr...(0x162bca0)
+>> Array size = 10
+Recycling 0x162bca0 to _recycleList[10]
+
+mtest> mtp
+=========================================
+=              Memory Manager           =
+=========================================
+* Block size            : 504 Bytes
+* Number of blocks      : 122
+* Free mem in last block: 136
+* Recycle list          : 

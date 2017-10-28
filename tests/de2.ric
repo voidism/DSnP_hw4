@@ -1,0 +1,100 @@
+mtest> mtn 10
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x9d17d0
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x9d17f8
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x9d1820
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x9d1848
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x9d1870
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x9d1898
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x9d18c0
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x9d18e8
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x9d1910
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x9d1938
+
+mtest> mtn 5 -a 256
+Calling allocArr...(9224)
+Calling MemMgr::getMem...(9224)
+Memory acquired... 0x9d1960
+Calling allocArr...(9224)
+Calling MemMgr::getMem...(9224)
+Memory acquired... 0x9d3d68
+Calling allocArr...(9224)
+Calling MemMgr::getMem...(9224)
+Memory acquired... 0x9d6170
+Calling allocArr...(9224)
+Calling MemMgr::getMem...(9224)
+Memory acquired... 0x9d8578
+Calling allocArr...(9224)
+Calling MemMgr::getMem...(9224)
+Memory acquired... 0x9da980
+
+mtest> mtn 5 -a 512
+Calling allocArr...(18440)
+Calling MemMgr::getMem...(18440)
+Memory acquired... 0x9dcd88
+Calling allocArr...(18440)
+Calling MemMgr::getMem...(18440)
+Recycling 0x9e1590 to _recycleList[15]
+New MemBlock... 0x9e90e0
+Memory acquired... 0x9e9340
+Calling allocArr...(18440)
+Calling MemMgr::getMem...(18440)
+Memory acquired... 0x9edb48
+Calling allocArr...(18440)
+Calling MemMgr::getMem...(18440)
+Memory acquired... 0x9f2350
+Calling allocArr...(18440)
+Calling MemMgr::getMem...(18440)
+Recycling 0x9f6b58 to _recycleList[283]
+New MemBlock... 0x9e9130
+Memory acquired... 0x9f9350
+
+mtest> mtd -i 7 -a
+Calling freeArr...(0x9edb48)
+>> Array size = 512
+Recycling 0x9edb48 to _recycleList[512]
+
+mtest> mtd -i 0 -a
+Calling freeArr...(0x9d1960)
+>> Array size = 256
+Recycling 0x9d1960 to _recycleList[256]
+
+mtest> mtp
+=========================================
+=              Memory Manager           =
+=========================================
+* Block size            : 65536 Bytes
+* Number of blocks      : 3
+* Free mem in last block: 47096
+* Recycle list          : 
+[256] = 1         [512] = 1         [ 15] = 1         [283] = 1         
+
+=========================================
+=             class MemTest             =
+=========================================
+Object list ---
+oooooooooo
+Array list ---
+xooooooxoo
+
+mtest> q -f
+

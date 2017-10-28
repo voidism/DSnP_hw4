@@ -116,7 +116,7 @@ MTNewCmd::exec(const string& option)
                                 if(!myStr2Int(options[++i], arraySize)) 
                                         return CmdExec::errorOption(CMD_OPT_ILLEGAL, options[i]);
                                 
-                                if(arraySize<0)
+                                if(arraySize<=0)
                                         return CmdExec::errorOption(CMD_OPT_ILLEGAL, options[i]);
                                 
                         }

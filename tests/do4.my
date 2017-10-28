@@ -1,0 +1,11 @@
+mtest> mtr 0
+
+mtest> mtr 39
+
+mtest> mtr 40
+
+mtest> mtn 1
+
+mtest> mtn 1 -a 1
+
+mtest> mtn 1 -a 0

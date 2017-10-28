@@ -1,0 +1,313 @@
+mtest> mtreset 190
+Resetting memMgr...(192)
+
+mtest> mtnew 3
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x19c57d0
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x19c57f8
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0x19c5820
+
+mtest> mtp
+=========================================
+=              Memory Manager           =
+=========================================
+* Block size            : 192 Bytes
+* Number of blocks      : 1
+* Free mem in last block: 72
+* Recycle list          : 
+
+=========================================
+=             class MemTest             =
+=========================================
+Object list ---
+ooo
+Array list ---
+
+
+mtest> mtdel -r 3
+Calling free...(0x19c5820)
+Calling free...(0x19c57f8)
+
+mtest> mtp
+=========================================
+=              Memory Manager           =
+=========================================
+* Block size            : 192 Bytes
+* Number of blocks      : 1
+* Free mem in last block: 72
+* Recycle list          : 
+[  0] = 2         
+=========================================
+=             class MemTest             =
+=========================================
+Object list ---
+oxx
+Array list ---
+
+
+mtest> mtnew 5 -a 3
+Calling allocArr...(116)
+Calling MemMgr::getMem...(116)
+Recycling 0x19c5848 to _recycleList[1]
+New MemBlock... 0x19dd0e0
+Memory acquired... 0x19c5ad0
+Calling allocArr...(116)
+Calling MemMgr::getMem...(116)
+Recycling 0x19c5b48 to _recycleList[1]
+New MemBlock... 0x19c5ba0
+Memory acquired... 0x19c5bd0
+Calling allocArr...(116)
+Calling MemMgr::getMem...(116)
+Recycling 0x19c5c48 to _recycleList[1]
+New MemBlock... 0x19c5ca0
+Memory acquired... 0x19c5cd0
+Calling allocArr...(116)
+Calling MemMgr::getMem...(116)
+Recycling 0x19c5d48 to _recycleList[1]
+New MemBlock... 0x19c5da0
+Memory acquired... 0x19c5dd0
+Calling allocArr...(116)
+Calling MemMgr::getMem...(116)
+Recycling 0x19c5e48 to _recycleList[1]
+New MemBlock... 0x19c5ea0
+Memory acquired... 0x19c5ed0
+
+mtest> mtp
+=========================================
+=              Memory Manager           =
+=========================================
+* Block size            : 192 Bytes
+* Number of blocks      : 6
+* Free mem in last block: 72
+* Recycle list          : 
+[  0] = 2         [  1] = 5         
+=========================================
+=             class MemTest             =
+=========================================
+Object list ---
+oxx
+Array list ---
+ooooo
+
+mtest> mtdel -r 2 -a
+Calling freeArr...(0x19c5dd0)
+>> Array size = 3
+Recycling 0x19c5dd0 to _recycleList[3]
+Calling freeArr...(0x19c5ed0)
+>> Array size = 3
+Recycling 0x19c5ed0 to _recycleList[3]
+
+mtest> mtp
+=========================================
+=              Memory Manager           =
+=========================================
+* Block size            : 192 Bytes
+* Number of blocks      : 6
+* Free mem in last block: 72
+* Recycle list          : 
+[  0] = 2         [  1] = 5         [  3] = 2         
+=========================================
+=             class MemTest             =
+=========================================
+Object list ---
+oxx
+Array list ---
+oooxx
+
+mtest> mtnew -a 2 3
+Calling allocArr...(80)
+Calling MemMgr::getMem...(80)
+Recycling 0x19c5f48 to _recycleList[1]
+New MemBlock... 0x19c58f0
+Memory acquired... 0x19c61b0
+Calling allocArr...(80)
+Calling MemMgr::getMem...(80)
+Memory acquired... 0x19c6200
+Calling allocArr...(80)
+Calling MemMgr::getMem...(80)
+New MemBlock... 0x19c6280
+Memory acquired... 0x19c62b0
+
+mtest> mtp
+=========================================
+=              Memory Manager           =
+=========================================
+* Block size            : 192 Bytes
+* Number of blocks      : 8
+* Free mem in last block: 112
+* Recycle list          : 
+[  0] = 2         [  1] = 6         [  3] = 2         
+=========================================
+=             class MemTest             =
+=========================================
+Object list ---
+oxx
+Array list ---
+oooxxooo
+
+mtest> mtnew -a 5 3
+Calling allocArr...(188)
+Calling MemMgr::getMem...(188)
+Recycling 0x19c6300 to _recycleList[2]
+New MemBlock... 0x19c5920
+Memory acquired... 0x19c6380
+Calling allocArr...(188)
+Calling MemMgr::getMem...(188)
+New MemBlock... 0x19c5950
+Memory acquired... 0x19c6450
+Calling allocArr...(188)
+Calling MemMgr::getMem...(188)
+New MemBlock... 0x19c6520
+Memory acquired... 0x19c6550
+
+mtest> mtp
+=========================================
+=              Memory Manager           =
+=========================================
+* Block size            : 192 Bytes
+* Number of blocks      : 11
+* Free mem in last block: 0
+* Recycle list          : 
+[  0] = 2         [  1] = 6         [  2] = 1         [  3] = 2         
+
+=========================================
+=             class MemTest             =
+=========================================
+Object list ---
+oxx
+Array list ---
+oooxxoooooo
+
+mtest> mtnew -a 7 2
+Calling allocArr...(260)
+Calling MemMgr::getMem...(260)
+
+mtest> mtp
+=========================================
+=              Memory Manager           =
+=========================================
+* Block size            : 192 Bytes
+* Number of blocks      : 11
+* Free mem in last block: 0
+* Recycle list          : 
+[  0] = 2         [  1] = 6         [  2] = 1         [  3] = 2         
+
+=========================================
+=             class MemTest             =
+=========================================
+Object list ---
+oxx
+Array list ---
+oooxxoooooo
+
+mtest> mtdel -r 8 -a
+Calling freeArr...(0x19c5cd0)
+>> Array size = 3
+Recycling 0x19c5cd0 to _recycleList[3]
+Calling freeArr...(0x19c6380)
+>> Array size = 5
+Recycling 0x19c6380 to _recycleList[5]
+Calling freeArr...(0x19c6200)
+>> Array size = 2
+Recycling 0x19c6200 to _recycleList[2]
+Calling freeArr...(0x19c61b0)
+>> Array size = 2
+Recycling 0x19c61b0 to _recycleList[2]
+
+mtest> mtp
+=========================================
+=              Memory Manager           =
+=========================================
+* Block size            : 192 Bytes
+* Number of blocks      : 11
+* Free mem in last block: 0
+* Recycle list          : 
+[  0] = 2         [  1] = 6         [  2] = 3         [  3] = 3         
+[  5] = 1         
+=========================================
+=             class MemTest             =
+=========================================
+Object list ---
+oxx
+Array list ---
+ooxxxxxoxoo
+
+mtest> mtdel -r 9 -a
+Calling freeArr...(0x19c6550)
+>> Array size = 5
+Recycling 0x19c6550 to _recycleList[5]
+Calling freeArr...(0x19c62b0)
+>> Array size = 2
+Recycling 0x19c62b0 to _recycleList[2]
+Calling freeArr...(0x19c5bd0)
+>> Array size = 3
+Recycling 0x19c5bd0 to _recycleList[3]
+Calling freeArr...(0x19c5ad0)
+>> Array size = 3
+Recycling 0x19c5ad0 to _recycleList[3]
+
+mtest> mtp
+=========================================
+=              Memory Manager           =
+=========================================
+* Block size            : 192 Bytes
+* Number of blocks      : 11
+* Free mem in last block: 0
+* Recycle list          : 
+[  0] = 2         [  1] = 6         [  2] = 4         [  3] = 5         
+[  5] = 2         
+=========================================
+=             class MemTest             =
+=========================================
+Object list ---
+oxx
+Array list ---
+xxxxxxxxxox
+
+mtest> mtdel -i 8 -a
+
+mtest> mtp
+=========================================
+=              Memory Manager           =
+=========================================
+* Block size            : 192 Bytes
+* Number of blocks      : 11
+* Free mem in last block: 0
+* Recycle list          : 
+[  0] = 2         [  1] = 6         [  2] = 4         [  3] = 5         
+[  5] = 2         
+=========================================
+=             class MemTest             =
+=========================================
+Object list ---
+oxx
+Array list ---
+xxxxxxxxxox
+
+mtest> mtdel -i 12 -a
+
+mtest> mtp
+=========================================
+=              Memory Manager           =
+=========================================
+* Block size            : 192 Bytes
+* Number of blocks      : 11
+* Free mem in last block: 0
+* Recycle list          : 
+[  0] = 2         [  1] = 6         [  2] = 4         [  3] = 5         
+[  5] = 2         
+=========================================
+=             class MemTest             =
+=========================================
+Object list ---
+oxx
+Array list ---
+xxxxxxxxxox
+
+mtest> q -f
+

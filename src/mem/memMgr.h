@@ -376,14 +376,14 @@ private:
       #endif // MEM_DEBUG
       // TODO.Done ---
       // 1. Make sure to promote t to a multiple of SIZE_T
-      t = toSizeT(t);
-      size_t n = getArraySize(t);
+      size_t _t = toSizeT(t);
+      size_t n = getArraySize(_t);
       // 2. Check if the requested memory is greater than the block size.
       //    If so, throw a "bad_alloc()" exception.
       //    cerr << "Requested memory (" << t << ") is greater than block size"
       //         << "(" << _blockSize << "). " << "Exception raised...\n";
-      if (t>_blockSize){
-        cerr << "Requested memory (" << t << ") is greater than block size"
+      if (_t>_blockSize){
+        cerr << "Requested memory (" << _t << ") is greater than block size"
              << "(" << _blockSize << "). " << "Exception raised...\n";
         throw bad_alloc();
       }
@@ -414,10 +414,16 @@ private:
       //    #ifdef MEM_DEBUG
       //    cout << "New MemBlock... " << _activeBlock << endl;
       //    #endif // MEM_DEBUG
-      else if(!_activeBlock->MemBlock<T>::getMem(t,ret)){
-        if(_activeBlock->getRemainSize()>=S){
-          size_t rn = getArraySize(_activeBlock->getRemainSize());
-          getMemRecycleList(rn)->pushFront((T*)(_activeBlock->_ptr));
+      else if(!_activeBlock->MemBlock<T>::getMem(_t,ret)){//no enough space
+        size_t _S = toSizeT(S);
+        if (_activeBlock->getRemainSize() >= _S)
+        {
+          size_t rn = getArraySize(downtoSizeT(_activeBlock->getRemainSize()));
+          size_t space;
+          if (rn == 0) space = S;
+          else space = SIZE_T+rn*S;
+          _activeBlock->MemBlock<T>::getMem(space, ret);
+          getMemRecycleList(rn)->pushFront(ret);
           #ifdef MEM_DEBUG
             cout << "Recycling " << ret << " to _recycleList[" << rn << "]\n";
           #endif // MEM_DEBUG
@@ -426,7 +432,8 @@ private:
           #ifdef MEM_DEBUG
             cout << "New MemBlock... " << _activeBlock << endl;
           #endif // MEM_DEBUG
-          ret =  (T*)(_activeBlock->_ptr);
+          _activeBlock->getMem(_t, ret);
+          //ret =  (T*)(_activeBlock->_ptr);
           //return _activeBlock._ptr;
       }
       else{

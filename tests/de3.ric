@@ -1,0 +1,227 @@
+mtest> mtr 120
+Resetting memMgr...(120)
+
+mtest> mtp
+=========================================
+=              Memory Manager           =
+=========================================
+* Block size            : 120 Bytes
+* Number of blocks      : 1
+* Free mem in last block: 120
+* Recycle list          : 
+
+=========================================
+=             class MemTest             =
+=========================================
+Object list ---
+
+Array list ---
+
+
+mtest> mtn -a 2 1
+Calling allocArr...(80)
+Calling MemMgr::getMem...(80)
+Memory acquired... 0xc207d0
+
+mtest> mtp
+=========================================
+=              Memory Manager           =
+=========================================
+* Block size            : 120 Bytes
+* Number of blocks      : 1
+* Free mem in last block: 40
+* Recycle list          : 
+
+=========================================
+=             class MemTest             =
+=========================================
+Object list ---
+
+Array list ---
+o
+
+mtest> mtn 1
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+Memory acquired... 0xc20820
+
+mtest> mtp
+=========================================
+=              Memory Manager           =
+=========================================
+* Block size            : 120 Bytes
+* Number of blocks      : 1
+* Free mem in last block: 0
+* Recycle list          : 
+
+=========================================
+=             class MemTest             =
+=========================================
+Object list ---
+o
+Array list ---
+o
+
+mtest> mtn -a 2 1
+Calling allocArr...(80)
+Calling MemMgr::getMem...(80)
+New MemBlock... 0xc380e0
+Memory acquired... 0xc20a40
+
+mtest> mtp
+=========================================
+=              Memory Manager           =
+=========================================
+* Block size            : 120 Bytes
+* Number of blocks      : 2
+* Free mem in last block: 40
+* Recycle list          : 
+
+=========================================
+=             class MemTest             =
+=========================================
+Object list ---
+o
+Array list ---
+oo
+
+mtest> mtn -a 1 1
+Calling allocArr...(44)
+Calling MemMgr::getMem...(44)
+Recycling 0xc20a90 to _recycleList[0]
+New MemBlock... 0xc208a0
+Memory acquired... 0xc20960
+
+mtest> mtp
+=========================================
+=              Memory Manager           =
+=========================================
+* Block size            : 120 Bytes
+* Number of blocks      : 3
+* Free mem in last block: 72
+* Recycle list          : 
+[  0] = 1         
+=========================================
+=             class MemTest             =
+=========================================
+Object list ---
+o
+Array list ---
+ooo
+
+mtest> 
+mtest> mtr 80
+Resetting memMgr...(80)
+
+mtest> mtp
+=========================================
+=              Memory Manager           =
+=========================================
+* Block size            : 80 Bytes
+* Number of blocks      : 1
+* Free mem in last block: 80
+* Recycle list          : 
+
+=========================================
+=             class MemTest             =
+=========================================
+Object list ---
+
+Array list ---
+
+
+mtest> mtn -a 2 1
+Calling allocArr...(80)
+Calling MemMgr::getMem...(80)
+Memory acquired... 0xc209e0
+
+mtest> mtp
+=========================================
+=              Memory Manager           =
+=========================================
+* Block size            : 80 Bytes
+* Number of blocks      : 1
+* Free mem in last block: 0
+* Recycle list          : 
+
+=========================================
+=             class MemTest             =
+=========================================
+Object list ---
+
+Array list ---
+o
+
+mtest> mtn 1
+Calling alloc...(36)
+Calling MemMgr::getMem...(36)
+New MemBlock... 0xc208a0
+Memory acquired... 0xc208d0
+
+mtest> mtp
+=========================================
+=              Memory Manager           =
+=========================================
+* Block size            : 80 Bytes
+* Number of blocks      : 2
+* Free mem in last block: 40
+* Recycle list          : 
+
+=========================================
+=             class MemTest             =
+=========================================
+Object list ---
+o
+Array list ---
+o
+
+mtest> mtn -a 2 1
+Calling allocArr...(80)
+Calling MemMgr::getMem...(80)
+Recycling 0xc208f8 to _recycleList[0]
+New MemBlock... 0xc20930
+Memory acquired... 0xc20a40
+
+mtest> mtp
+=========================================
+=              Memory Manager           =
+=========================================
+* Block size            : 80 Bytes
+* Number of blocks      : 3
+* Free mem in last block: 0
+* Recycle list          : 
+[  0] = 1         
+=========================================
+=             class MemTest             =
+=========================================
+Object list ---
+o
+Array list ---
+oo
+
+mtest> mtn -a 1 1
+Calling allocArr...(44)
+Calling MemMgr::getMem...(44)
+New MemBlock... 0xc209b0
+Memory acquired... 0xc20aa0
+
+mtest> mtp
+=========================================
+=              Memory Manager           =
+=========================================
+* Block size            : 80 Bytes
+* Number of blocks      : 4
+* Free mem in last block: 32
+* Recycle list          : 
+[  0] = 1         
+=========================================
+=             class MemTest             =
+=========================================
+Object list ---
+o
+Array list ---
+ooo
+
+mtest> 
+mtest> q -f
+
