@@ -134,9 +134,9 @@ class MemRecycleList
    // push the element 'p' to the beginning of the recycle list
    void  pushFront(T* p) {
       // TODO.Done
-      T *tmp = p;
+      //T *tmp = p;
       *((size_t *)p) = (size_t)_first;
-      _first = tmp;
+      _first = p;
    }
    // Release the memory occupied by the recycle list(s)
    // DO NOT release the memory occupied by MemMgr/MemBlock

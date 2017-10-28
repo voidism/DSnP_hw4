@@ -100,7 +100,7 @@ MTNewCmd::exec(const string& option)
         try{
         mtest.newObjs(numObjects);
         }
-        catch(...){
+        catch(bad_alloc& cat){
                 #ifdef MEM_DEBUG
                 cerr << "catch you!!!\n";
                 #endif
@@ -137,7 +137,7 @@ MTNewCmd::exec(const string& option)
         try{
         mtest.newArrs((size_t)numObjects, (size_t)arraySize);
         }
-        catch(...){
+        catch(bad_alloc& cat){
                 #ifdef MEM_DEBUG
                 cerr << "catch you!!!\n";
                 #endif
