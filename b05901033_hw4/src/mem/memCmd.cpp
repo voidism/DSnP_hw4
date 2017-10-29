@@ -210,9 +210,9 @@ MTDeleteCmd::exec(const string& option)
                    raname = options[i];
                    if (objId != -1 || numRandId != -1)
                    {
-                           #ifdef MEM_DEBUG
-                           cout << "redifine!" ; 
-                           #endif
+                           //#ifdef MEM_DEBUG
+                           //cout << "redifine!" ; 
+                           //#endif
                            return CmdExec::errorOption(CMD_OPT_ILLEGAL, options[i]);
                    }
                    if ((i + 1) >= options.size())
@@ -223,16 +223,16 @@ MTDeleteCmd::exec(const string& option)
                    {
                            i++;
                            if (!myStr2Int(options[i], numRandId)){
-                                   #ifdef MEM_DEBUG
-                                   cout << "mystr2int fail!"; 
-                                   #endif
+                                   //#ifdef MEM_DEBUG
+                                   //cout << "mystr2int fail!"; 
+                                   //#endif
                                    return CmdExec::errorOption(CMD_OPT_ILLEGAL, options[i]);
                            }
                            numRandIdstr = options[i];
                            if (numRandId <= 0){
-                                   #ifdef MEM_DEBUG
-                                   cout << "numRandId <= 0"; 
-                                   #endif
+                                   //#ifdef MEM_DEBUG
+                                   //cout << "numRandId <= 0"; 
+                                   //#endif
                                    return CmdExec::errorOption(CMD_OPT_ILLEGAL, options[i]);
                            }
                    }
