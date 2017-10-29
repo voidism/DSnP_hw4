@@ -216,6 +216,9 @@ public:
           _activeBlock = _activeBlock->_nextBlock;
           delete target;
         }
+  _activeBlock->reset();
+  for (size_t i = 0; i < R_SIZE; i++)
+  _recycleList[i].reset();
       }
       else if(b!=_blockSize){
         //delete all Blocks
@@ -226,8 +229,12 @@ public:
           _activeBlock = _activeBlock->_nextBlock;
           delete target;
         }
+	_activeBlock->reset();
         delete _activeBlock;
         _activeBlock = new MemBlock<T>(0, _blockSize);
+
+	for (size_t i = 0; i < R_SIZE; i++)
+         _recycleList[i].reset();
       }
    }
    // Called by new
@@ -339,6 +346,7 @@ private:
       // TODO.Done
       if(n<R_SIZE){
         MemRecycleList<T> *current = &_recycleList[n];
+	//assert(current->getArrSize() == n);
         return current;
       }
       if(_recycleList[m]._nextList==0){

@@ -78,8 +78,8 @@ public:
    void deleteObj(size_t idx) {
       assert(idx < _objList.size());
       // TODO
-   if(_objList[idx] != 0 ) delete _objList[idx];
-      _objList[idx] = 0;
+   if(_objList[idx] != 0 ) {delete _objList[idx];
+      _objList[idx] = 0;}
    }
    // Delete the array with position idx in _arrList[]
    void deleteArr(size_t idx) {
