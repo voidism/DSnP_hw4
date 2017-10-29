@@ -138,9 +138,9 @@ MTNewCmd::exec(const string& option)
         mtest.newArrs((size_t)numObjects, (size_t)arraySize);
         }
         catch(bad_alloc& cat){
-                #ifdef MEM_DEBUG
-                cerr << "catch you!!!\n";
-                #endif
+                //#ifdef MEM_DEBUG
+                //cerr << "catch you!!!\n";
+                //#endif
         }
       }
 
